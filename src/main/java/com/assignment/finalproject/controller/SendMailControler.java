@@ -43,6 +43,7 @@ public class SendMailControler implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
+            System.out.println("nipun");
             loadParentID();
         } catch (SQLException e) {
             throw new RuntimeException(e);
