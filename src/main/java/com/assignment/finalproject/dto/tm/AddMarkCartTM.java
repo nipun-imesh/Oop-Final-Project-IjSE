@@ -11,7 +11,7 @@ import lombok.ToString;
 @Data
 @ToString
 
-public class AddMarkCartTM {
+public class AddMarkCartTM extends GetStudentNameIdTM {
     private  String studentID;
     private  String studentName;
     private  String S_class;

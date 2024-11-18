@@ -53,4 +53,19 @@ public class AddMarkModel {
         }
         return null;
     }
+
+    public boolean palesAllMark(ArrayList<PlaysStudentAllMarkDTO> playsStudentAllMarkDTOS) throws SQLException {
+
+        for(PlaysStudentAllMarkDTO playsStudentAllMarkDTO : playsStudentAllMarkDTOS) {
+
+           boolean isSaved = CrudUtil.execute("INSERT INTO marks VALUES (?,?,?,?)",
+                    playsStudentAllMarkDTO.getMark(),
+                    playsStudentAllMarkDTO.getSubjectId(),
+                    playsStudentAllMarkDTO.getStudentId(),
+                    playsStudentAllMarkDTO.getExamId());
+
+
+        }
+        return true;
+    }
 }

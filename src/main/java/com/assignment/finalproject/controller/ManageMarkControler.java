@@ -67,6 +67,12 @@ public class ManageMarkControler implements Initializable {
     private Label LBOldMark;
 
     @FXML
+    private Label LBExamID;
+
+    @FXML
+    private Label LBSubjectID;
+
+    @FXML
     private Label LBStudentId;
 
     @FXML
@@ -104,6 +110,20 @@ public class ManageMarkControler implements Initializable {
     @FXML
     void delectDataOnAction(ActionEvent event) {
 
+        ManageExamMarkTM manageExamMarkTM = TBLSelectMark.getSelectionModel().getSelectedItem();
+        if (manageExamMarkTM != null) {
+            try {
+                boolean isDeleted = manageMarkModel.deleteMark(manageExamMarkTM.getExamID(), manageExamMarkTM.getSubjectID());
+            if(isDeleted){
+                new Alert(Alert.AlertType.CONFIRMATION, "Mark deleted successfully").show();
+            }else {
+                new Alert(Alert.AlertType.ERROR, "Mark not deleted").show();
+            }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        TBLSelectMark.refresh();
     }
 
     @FXML
@@ -111,6 +131,8 @@ public class ManageMarkControler implements Initializable {
         ManageExamMarkTM manageExamMarkTM = TBLSelectMark.getSelectionModel().getSelectedItem();
         if (manageExamMarkTM != null) {
             LBOldMark.setText(manageExamMarkTM.getMark());
+            LBExamID.setText(manageExamMarkTM.getExamID());
+            LBSubjectID.setText(manageExamMarkTM.getSubjectID());
         }
     }
 
@@ -122,7 +144,7 @@ public class ManageMarkControler implements Initializable {
             LBStudentId.setText(getStudentNameIdTM.getStudentId());
             LBStudentName.setText(getStudentNameIdTM.getStudentName());
         }
-        String studentId = getStudentNameIdTM.getStudentId();
+        String studentId = LBStudentId.getText();
 
         ArrayList<ManageExamMarkTM> manageExamMarkTMS = null;
         try {
@@ -136,11 +158,27 @@ public class ManageMarkControler implements Initializable {
 
     @FXML
     void updateMarkOnAction(ActionEvent event) {
+        double mark = Double.parseDouble(TXTNewMark.getText());
+        String studentId = LBStudentId.getText();
+        String subjectId = LBSubjectID.getText();
+        String examId = LBExamID.getText();
 
+        try {
+            boolean isUpdated = manageMarkModel.updateMark(mark, studentId, subjectId, examId);
+            if (isUpdated) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Mark updated successfully").show();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Mark not updated").show();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        TBLSelectMark.refresh();
     }
 
     @FXML
     void isSelectClassOnAction(ActionEvent event) {
+
         COMSelectGarde.setDisable(false);
     }
 

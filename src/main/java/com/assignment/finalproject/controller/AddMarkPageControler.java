@@ -1,8 +1,6 @@
 package com.assignment.finalproject.controller;
 
-import com.assignment.finalproject.dto.sub.ClassDTO;
-import com.assignment.finalproject.dto.sub.ExamNameDTO;
-import com.assignment.finalproject.dto.sub.SabjectDTO;
+import com.assignment.finalproject.dto.sub.*;
 import com.assignment.finalproject.dto.tm.AddMarkCartTM;
 import com.assignment.finalproject.dto.tm.GetStudentNameIdTM;
 import com.assignment.finalproject.model.mainModel.AddMarkModel;
@@ -30,6 +28,7 @@ public class AddMarkPageControler implements Initializable {
     AddMarkModel addMarkModel = new AddMarkModel();
     SubjectModel subjectModel = new SubjectModel();
     private final ObservableList<AddMarkCartTM> addMarkCartTMS = FXCollections.observableArrayList();
+    private final ObservableList<GetStudentNameIdTM> getStudentNameIdTMS = FXCollections.observableArrayList();
 
 
     @FXML
@@ -122,6 +121,30 @@ public class AddMarkPageControler implements Initializable {
 
     @FXML
     void palesAllMarkAction(ActionEvent event) {
+
+        ArrayList<PlaysStudentAllMarkDTO> playsStudentAllMarkDTOS = new ArrayList<>();
+
+        for(AddMarkCartTM addMarkCartTM : addMarkCartTMS){
+            PlaysStudentAllMarkDTO playsStudentAllMarkDTO = new PlaysStudentAllMarkDTO(
+                    addMarkCartTM.getStudentID(),
+                    addMarkCartTM.getSubject(),
+                    addMarkCartTM.getExamID(),
+                    String.valueOf(addMarkCartTM.getMark())
+            );
+            playsStudentAllMarkDTOS.add(playsStudentAllMarkDTO);
+        }
+
+        try {
+          boolean  isSaved = addMarkModel.palesAllMark(playsStudentAllMarkDTOS);
+
+            if (isSaved) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved...").show();
+            }else {
+                new Alert(Alert.AlertType.ERROR, "Failed...").show();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -246,10 +269,11 @@ public class AddMarkPageControler implements Initializable {
             );
             btn.setOnAction(actionEvent -> {
 
-                addMarkCartTMS.remove(addMarkCartTM);
+
                 TBLMarkTable.refresh();
             });
             addMarkCartTMS.add(addMarkCartTM);
+            getStudentNameIdTMS.add(addMarkCartTM);
             setMArkValues();
             TBLMarkTable.setItems(addMarkCartTMS);
         } catch (NumberFormatException e) {

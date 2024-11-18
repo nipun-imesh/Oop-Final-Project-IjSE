@@ -59,5 +59,20 @@ public class ManageMarkModel {
         return manageExamMarkTMS;
     }
 
+    public boolean updateMark(double mark, String studentId, String subjectId, String examId) throws SQLException {
+
+        return CrudUtil.execute("UPDATE marks SET mark = ? WHERE ex_id = ? AND stu_id = ? AND sub_id = ?",
+                mark,
+                examId,
+                studentId,
+                subjectId);
+    }
+
+    public boolean deleteMark(String examID, String subjectID) throws SQLException {
+
+        return CrudUtil.execute("DELETE FROM marks WHERE ex_id = ? AND sub_id = ?",
+                examID,
+                subjectID);
+    }
 }
 
