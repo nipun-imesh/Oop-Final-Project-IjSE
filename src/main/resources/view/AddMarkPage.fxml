@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ANKMaksManege" prefHeight="720.0" prefWidth="975.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.AddMarkPageControler">
+    <children>
+            <Label layoutX="27.0" layoutY="47.0" prefHeight="18.0" prefWidth="66.0" text="Class" textOverrun="CLIP" />
+            <ComboBox fx:id="COMGrade" layoutX="375.0" layoutY="42.0" onAction="#selectGradeOnaction" prefHeight="26.0" prefWidth="94.0" />
+              <Label layoutX="13.0" layoutY="305.0" prefHeight="30.0" prefWidth="94.0" text="Mark id" />
+              <Label fx:id="LBMarkId" layoutX="107.0" layoutY="308.0" prefHeight="26.0" prefWidth="80.0" text="M001" />
+              <Label layoutX="18.0" layoutY="122.0" prefHeight="30.0" prefWidth="80.0" text="Student id" />
+              <Label fx:id="LBStudentId" layoutX="99.0" layoutY="122.0" prefHeight="30.0" prefWidth="81.0" text="S001" />
+              <Label layoutX="197.0" layoutY="123.0" prefHeight="27.0" prefWidth="109.0" text="Student Name" />
+              <Label layoutX="330.0" layoutY="176.0" prefHeight="18.0" prefWidth="66.0" text="Exam id" />
+              <Label fx:id="LBExamId" layoutX="422.0" layoutY="176.0" prefHeight="18.0" prefWidth="72.0" text="E001" />
+              <Label layoutX="18.0" layoutY="185.0" prefHeight="18.0" prefWidth="111.0" text="Exam name" />
+              <ComboBox fx:id="COBExamNAme" layoutX="136.0" layoutY="172.0" onAction="#selectExamNameOnAction" prefHeight="26.0" prefWidth="164.0" />
+                <Label layoutX="219.0" layoutY="312.0" prefHeight="18.0" prefWidth="80.0" text="Mark" />
+                <TextField fx:id="TXTMark" layoutX="339.0" layoutY="307.0" prefHeight="26.0" prefWidth="166.0" />
+              <Button fx:id="BUTpalesallMark" layoutX="506.0" layoutY="678.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#palesAllMarkAction" prefHeight="27.0" prefWidth="433.0" styleClass="button1" stylesheets="@../css/Styile.css" text="Pales all mark" textFill="WHITE">
+                  <font>
+                      <Font name="Calibri Bold" size="14.0" />
+                  </font>
+                  <cursor>
+                      <Cursor fx:constant="CLOSED_HAND" />
+                  </cursor>
+              </Button>
+             <TableView fx:id="TBLMarkTable" layoutX="13.0" layoutY="462.0" prefHeight="170.0" prefWidth="950.0">
+                  <columns>
+            <TableColumn fx:id="COLStudenID" minWidth="0.0" prefWidth="75.19997882843018" text="Student ID" />
+                      <TableColumn fx:id="COLStudent" minWidth="0.0" prefWidth="176.79995441436768" text="Student Name" />
+                      <TableColumn fx:id="COLGrade" minWidth="0.0" prefWidth="70.39996337890625" text="Class" />
+                      <TableColumn fx:id="COLExamID" minWidth="0.0" prefWidth="172.7999267578125" text="Exam ID" />
+                      <TableColumn fx:id="COLSubjectID" minWidth="0.0" prefWidth="93.5999755859375" text="Subject ID" />
+                      <TableColumn fx:id="COLMarkID" prefWidth="82.39996337890625" text="Mark id" />
+                      <TableColumn fx:id="COLMark" minWidth="0.0" prefWidth="126.39996337890625" text="Mark" />
+            <TableColumn fx:id="COLDelete" minWidth="0.0" prefWidth="153.5999755859375" text="Delete" />
+                  </columns>
+              </TableView>
+      <Label layoutX="298.0" layoutY="41.0" prefHeight="30.0" prefWidth="72.0" text="Grade" />
+      <Label layoutX="18.0" layoutY="264.0" prefHeight="18.0" prefWidth="111.0" text="Subject ID" />
+      <Label fx:id="LBStudentName" layoutX="362.0" layoutY="121.0" prefHeight="30.0" prefWidth="81.0" text="S001" />
+      <Button fx:id="BUTSearch" layoutX="530.0" layoutY="43.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="27.0" prefWidth="112.0" styleClass="button1" stylesheets="@../css/Styile.css" text="search" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+      </Button>
+      <TableView fx:id="TBLStudent" layoutX="551.0" layoutY="129.0" onMouseClicked="#setStudentTBL" prefHeight="270.0" prefWidth="386.0">
+        <columns>
+          <TableColumn fx:id="COLsetStudentID" prefWidth="132.800048828125" text="Sudent ID" />
+          <TableColumn fx:id="COLsetStudeName" minWidth="0.0" prefWidth="246.4000244140625" text="Student Name" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="COMSetClass" layoutX="112.0" layoutY="44.0" onAction="#selectClassOnAction" prefWidth="150.0" />
+      <Button fx:id="BUTAddMark" layoutX="373.0" layoutY="416.0" mnemonicParsing="false" onAction="#setMArkOnTableAction" prefHeight="26.0" prefWidth="141.0" text="Add" />
+      <Label layoutX="251.0" layoutY="264.0" prefHeight="18.0" prefWidth="80.0" text="Subject Name" />
+      <Label fx:id="LBSubjectName" layoutX="353.0" layoutY="256.0" prefHeight="26.0" prefWidth="124.0" />
+      <Line endX="100.0" layoutX="422.0" layoutY="282.0" startX="-100.0" />
+      <ComboBox fx:id="COMSubjectID" layoutX="107.0" layoutY="260.0" onAction="#selectSubjectOnAction" prefHeight="26.0" prefWidth="124.0" />
+    </children>
+</AnchorPane>

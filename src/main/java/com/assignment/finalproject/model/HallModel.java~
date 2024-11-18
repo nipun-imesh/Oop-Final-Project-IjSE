@@ -1,0 +1,24 @@
+package com.assignment.finalproject.model;
+
+import com.assignment.finalproject.Cradutil.CrudUtil;
+import com.assignment.finalproject.dto.ClassDTO;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class HallModel {
+    public ObservableList<ClassDTO> getAllClass() throws SQLException {
+        ResultSet rst = CrudUtil.execute("select  hall_id from ");
+
+        ObservableList<ClassDTO> classDTOS = FXCollections.observableArrayList();
+        while (rst.next()) {
+            ClassDTO classDTO = new ClassDTO(
+                    rst.getString(1)  // Customer ID
+            );
+            classDTOS.add(classDTO);
+        }
+        return classDTOS;
+    }
+}
