@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="725.0" prefWidth="975.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.AddParentPageControler">
+<AnchorPane prefHeight="725.0" prefWidth="975.0" style="-fx-background-color: white;" stylesheets="@../css/Styile.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.AddParentPageControler">
    <children>
       <VBox fx:id="Vbox" layoutX="10.0" layoutY="80.0" prefHeight="644.0" prefWidth="962.0">
          <children>
@@ -20,20 +20,20 @@
                <children>
                   <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="596.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="154.0" text="parent Id" />
-                        <Label fx:id="LBParentId" layoutX="10.0" layoutY="21.0" prefHeight="18.0" prefWidth="154.0" text="1" />
+                        <Label prefHeight="18.0" prefWidth="161.0" text="parent Id" />
+                        <Label fx:id="LBParentId" layoutX="10.0" layoutY="21.0" prefHeight="18.0" prefWidth="154.0" stylesheets="@../css/TablesColer.css" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="596.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="154.0" text="parent Name" />
-                        <TextField fx:id="TXTParentName" prefHeight="26.0" prefWidth="294.0" />
+                        <TextField fx:id="TXTParentName" prefHeight="26.0" prefWidth="294.0" styleClass="textFealComBox" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="50.0" prefHeight="40.0" prefWidth="596.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="154.0" text="parent Email" />
-                        <TextField fx:id="TXTParentMail" prefHeight="26.0" prefWidth="294.0" />
+                        <TextField fx:id="TXTParentMail" prefHeight="26.0" prefWidth="294.0" styleClass="textFealComBox" />
                      </children>
                   </HBox>
                </children>

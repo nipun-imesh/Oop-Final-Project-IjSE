@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ANKaddStudentpain" prefHeight="725.0" prefWidth="975.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.StudentManagePageControler">
+<AnchorPane fx:id="ANKaddStudentpain" prefHeight="725.0" prefWidth="975.0" style="-fx-background-color: white;" stylesheets="@../css/TablesColer.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.StudentManagePageControler">
    <children>
       <VBox layoutX="-7.0" layoutY="13.0" prefHeight="725.0" prefWidth="986.0" AnchorPane.bottomAnchor="-13.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="13.0">
          <children>
@@ -29,7 +29,7 @@
                      <children>
                         <Label prefHeight="38.0" prefWidth="163.0" text="Stuent Id" HBox.hgrow="ALWAYS">
                            <font>
-                              <Font name="Calibri" size="14.0" />
+                              <Font name="Calibri Bold" size="14.0" />
                            </font>
                         </Label>
                         <Label fx:id="LBStudentId" layoutX="10.0" layoutY="15.0" maxWidth="1.7976931348623157E308" prefHeight="38.0" prefWidth="735.0" HBox.hgrow="ALWAYS">
@@ -43,10 +43,10 @@
                      <children>
                         <Label prefWidth="150.0" text="Student name" HBox.hgrow="ALWAYS">
                            <font>
-                              <Font name="Calibri" size="14.0" />
+                              <Font name="Calibri Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="TXTName" promptText="customer" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="TXTName" promptText="customer" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
@@ -57,10 +57,10 @@
                      <children>
                         <Label prefWidth="150.0" text="Age" HBox.hgrow="ALWAYS">
                            <font>
-                              <Font name="Calibri" size="14.0" />
+                              <Font name="Calibri Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="TXTAge" promptText="000000000000" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="TXTAge" promptText="000000000000" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
@@ -69,24 +69,30 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="200.0">
                      <children>
-                        <Label prefHeight="18.0" prefWidth="150.0" text="Grade" />
-                        <TextField fx:id="TXTGrade" prefHeight="26.0" prefWidth="262.0" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
+                        <Label prefHeight="18.0" prefWidth="150.0" text="Grade">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <TextField fx:id="TXTGrade" prefHeight="26.0" prefWidth="262.0" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-width: 0 0 1px 0;" />
                         <Label alignment="CENTER" prefHeight="18.0" prefWidth="314.0" text="Class">
                            <opaqueInsets>
                               <Insets left="50.0" />
                            </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Label>
-                        <ComboBox fx:id="COMClass" onAction="#selectClassOnaction" prefHeight="26.0" prefWidth="193.0" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
+                        <ComboBox fx:id="COMClass" onAction="#selectClassOnaction" prefHeight="26.0" prefWidth="193.0" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-width: 0 0 1px 0;" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="44.0">
                      <children>
                         <Label prefHeight="18.0" prefWidth="150.0" text="Date Of Barth" HBox.hgrow="ALWAYS">
                            <font>
-                              <Font name="Calibri" size="14.0" />
+                              <Font name="Calibri Bold" size="14.0" />
                            </font>
                         </Label>
-                        <DatePicker fx:id="DATEDateofBarth" prefHeight="26.0" prefWidth="235.0" style="-fx-background-color: #fff; -fx-border-color: #7367F0; -fx-border-width: 0 0 1px 0;" />
+                        <DatePicker fx:id="DATEDateofBarth" prefHeight="26.0" prefWidth="235.0" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-width: 0 0 1px 0;" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="739.0">
@@ -97,9 +103,15 @@
                         <Insets />
                      </VBox.margin>
                      <children>
-                        <Label prefHeight="18.0" prefWidth="151.0" text="Parent ID" />
-                        <Label fx:id="TXTStuParentId" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="130.0" />
-                        <Label layoutX="66.0" layoutY="10.0" prefHeight="18.0" prefWidth="135.0" text="Parent Name" />
+                        <Label prefHeight="18.0" prefWidth="151.0" text="Parent ID">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                        <Label fx:id="TXTStuParentId" layoutX="10.0" layoutY="10.0" prefHeight="26.0" prefWidth="125.0" />
+                        <Label layoutX="66.0" layoutY="10.0" prefHeight="18.0" prefWidth="135.0" text="Parent Name">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
                         <Label fx:id="TXTStuParentName" layoutX="38.0" layoutY="10.0" prefHeight="27.0" prefWidth="122.0" />
                         <Button fx:id="BUTAddParent" mnemonicParsing="false" onAction="#addparentOnAction" prefHeight="26.0" prefWidth="126.0" styleClass="button1" stylesheets="@../css/Styile.css" text="Add Perant">
                            <HBox.margin>

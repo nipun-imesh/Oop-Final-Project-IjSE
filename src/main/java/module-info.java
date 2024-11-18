@@ -4,6 +4,8 @@ module com.assignment.finalproject {
     requires java.sql;
     requires static lombok;
     requires java.desktop;
+    requires java.sql.rowset;
+    requires java.mail;
 
     opens com.assignment.finalproject.dto.tm to javafx.base;
     opens com.assignment.finalproject.controller to javafx.fxml;

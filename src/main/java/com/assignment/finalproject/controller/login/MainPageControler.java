@@ -1,6 +1,7 @@
 
 package com.assignment.finalproject.controller.login;
 
+import com.assignment.finalproject.controller.AddParentToStudentPageControler;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -103,6 +105,18 @@ public class MainPageControler {
     }
 
 
+    @FXML
+    void sendMailAction(ActionEvent event) throws IOException {
+
+        Parent load = FXMLLoader.load(getClass().getResource("/view/SendMailPage.fxml"));
+        Stage stage = new Stage();
+        stage.setScene(new Scene(load));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/imege/logo-removebg-preview.png")));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setResizable(false);
+        stage.show();
+
+    }
 
     public void navigateTo(String path) {
 

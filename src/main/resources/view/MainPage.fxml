@@ -11,7 +11,7 @@
    <children>
       <Pane layoutY="-1.0" prefHeight="720.0" prefWidth="275.0" styleClass="Backgrount1" stylesheets="@../css/Styile.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox layoutX="22.0" layoutY="117.0" prefHeight="516.0" prefWidth="238.0" spacing="5.0">
+            <VBox layoutX="19.0" layoutY="55.0" prefHeight="546.0" prefWidth="238.0" spacing="5.0">
                <children>
                   <Button fx:id="BUTStudentManage" mnemonicParsing="false" onAction="#StudentManageAction" prefHeight="74.0" prefWidth="238.0" styleClass="menu-item" text="Student Manage">
                      <VBox.margin>
@@ -32,14 +32,14 @@
                      </VBox.margin></Button>
                   <Button fx:id="BUTParentManage" mnemonicParsing="false" onAction="#ParentManageAction" prefHeight="68.0" prefWidth="238.0" styleClass="menu-item" text="Perent Manage" />
                   <Button fx:id="BUTExamManage" layoutX="10.0" layoutY="314.0" mnemonicParsing="false" onAction="#ExamManageAction" prefHeight="68.0" prefWidth="238.0" styleClass="menu-item" text="Exam Manage" />
+                  <Button fx:id="BUTSendMail" layoutX="10.0" layoutY="387.0" mnemonicParsing="false" onAction="#sendMailAction" prefHeight="68.0" prefWidth="238.0" styleClass="menu-item" text="Send Mail" />
                </children>
             </VBox>
-            <Button layoutX="26.0" layoutY="657.0" mnemonicParsing="false" onAction="#goBackAction" prefHeight="27.0" prefWidth="113.0" text="go back">
+            <Button layoutX="75.0" layoutY="659.0" mnemonicParsing="false" onAction="#goBackAction" prefHeight="27.0" prefWidth="113.0" styleClass="button1" stylesheets="@../css/Styile.css" text="LOG OUT">
                <font>
                   <Font size="13.0" />
                </font>
             </Button>
-            <Button layoutX="82.0" layoutY="39.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="119.0" text="Menu" />
          </children>
          <opaqueInsets>
             <Insets />

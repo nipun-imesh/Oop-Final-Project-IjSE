@@ -35,7 +35,6 @@ public class ManageMarkControler implements Initializable {
     @FXML
     private Button BUTUpdate;
 
-
     @FXML
     private TableColumn<ManageExamMarkTM, String> COLSubjctID;
 
@@ -215,5 +214,4 @@ public class ManageMarkControler implements Initializable {
         }
         COMSelectGarde.setItems(observableList);
     }
-
 }

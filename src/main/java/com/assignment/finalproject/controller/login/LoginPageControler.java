@@ -110,8 +110,10 @@ public class LoginPageControler {
     }
 
     @FXML
-    void wotchResaltAction(ActionEvent event) {
-
+    void wotchResaltAction(ActionEvent event) throws IOException {
+        ANKLoginPage.getChildren().clear();
+        AnchorPane load = FXMLLoader.load(getClass().getResource("/view/StudentResaltViewPage.fxml"));
+        ANKLoginPage.getChildren().add(load);
     }
 
     private void showErrorMessageWithFade() {

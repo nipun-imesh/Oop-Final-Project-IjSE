@@ -1,3 +1,39 @@
-.backgrount{
-    background-color: #ffffff;
+.table-row-cell:odd {
+    -fx-background-color: #e7dad0; /* Light green for even rows */
 }
+
+.table-row-cell:even {
+    -fx-background-color: #FFFFFF; /* White for odd rows */
+}
+
+.table-column-header-background {
+    -fx-background-color: #ff4800; /* Green color for header */
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-background-color: #ff4800;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* Add this section for selection highlighting */
+.table-row-cell:selected {
+    -fx-background-color: #ff4800; /* Light blue for selected row */
+    -fx-text-fill: #000000; /* Black text color for selected row */
+    -fx-font-weight: bold;
+}
+
+.table-cell:selected {
+    -fx-background-color: #ff4800; /* Light blue for selected cell */
+    -fx-text-fill: #ffffff; /* Black text color for selected cell */
+    -fx-font-weight: bold;
+}
+
+.table-column-header-background:selected {
+    -fx-background-color: #ff4800; /* Light blue for selected column header */
+}
+
+.table-row-cell {
+    -fx-text-fill: black; /* Default text color for rows */
+}
+

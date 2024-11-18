@@ -21,7 +21,7 @@ public class Appinitlizer extends Application {
     public void start(Stage stage) throws IOException {
 
         stage.setResizable(false);
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/MainPage.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/LoginPage.fxml"))));
         stage.setTitle("ABC Exam Management System");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/imege/logo-removebg-preview.png")));
         stage.show();

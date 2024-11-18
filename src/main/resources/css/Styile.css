@@ -21,28 +21,32 @@
 }
 
 .Backgrount1 {
-    -fx-background-color: rgb(140, 83, 230); /* Fallback color */
-    -fx-background-color: linear-gradient(to bottom right, rgba(140, 83, 230, 1) 0%, rgba(107, 86, 246, 1) 100%);
+    -fx-background-color: rgb(5, 5, 5); /* Fallback color */
+    -fx-background-color: linear-gradient(to bottom right, rgb(0, 0, 0) 0%, rgb(5, 5, 5) 100%);
     -fx-background-radius: 10px;
     -fx-padding: 15px;
 }
 /* Background color for the sidebar */
 .sidebar {
-    -fx-background-color: #6c3bbd; /* Purple background color */
+    -fx-background-color: #7f37b1; /* Purple background color */
     -fx-pref-width: 200px;
 }
 
 /* Main Menu text styling */
-.main-menu {
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-    -fx-padding: 10px;
-}
+/*.main-menu {*/
+/*    -fx-text-fill: white;*/
+/*    -fx-background-color: #e6dede;*/
+/*    -fx-font-size: 14px;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-padding: 10px;*/
+/*    -fx-border-radius: 3px;*/
+/*    -fx-border-color: white;*/
+
+/*}*/
 
 /* Style for buttons or menu items */
 .menu-item {
-    -fx-background-color: transparent;
+    -fx-background-color: #050505;
     -fx-font-weight: bold;
     -fx-text-fill: white;
     -fx-font-size: 13px;
@@ -52,12 +56,13 @@
 }
 
 .menu-item:hover {
-    -fx-background-color: #8a4dd8;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: black;
 }
 
 .menu-item:focused {
-    -fx-background-color: #E0C2FF;
-    -fx-text-fill: #6C3BBD;
+    -fx-background-color: #ff4800;
+    -fx-text-fill: #ffffff;
 }
 
 .logout-button {
@@ -92,4 +97,10 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0.5, 0, 5);
     -fx-scale-x: 1.05; /* Slight pop effect horizontally */
     -fx-scale-y: 1.05; /* Slight pop effect vertically */
+}
+
+.textFealComBox{
+    -fx-background-color: #fff;
+    -fx-border-color: black;
+    -fx-border-width: 0 0 1px 0;
 }

@@ -6,8 +6,9 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="207.0" prefWidth="464.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.login.UserAccontValidateControler">
+<AnchorPane prefHeight="207.0" prefWidth="464.0" style="-fx-border-color: black;" stylesheets="@../css/Styile.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.login.UserAccontValidateControler">
    <children>
       <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="33.0" prefHeight="38.0" prefWidth="479.0">
          <children>
@@ -15,8 +16,11 @@
                <HBox.margin>
                   <Insets left="30.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Label>
-            <TextField fx:id="TXtAdDminName" prefHeight="26.0" prefWidth="191.0" />
+            <TextField fx:id="TXtAdDminName" prefHeight="26.0" prefWidth="191.0" styleClass="textFealComBox" />
          </children>
       </HBox>
       <HBox alignment="CENTER_LEFT" layoutX="20.0" layoutY="72.0" prefHeight="38.0" prefWidth="479.0">
@@ -25,11 +29,14 @@
                <HBox.margin>
                   <Insets left="30.0" />
                </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
             </Label>
-            <TextField fx:id="TXTAdminPassword" prefHeight="26.0" prefWidth="192.0" />
+            <TextField fx:id="TXTAdminPassword" prefHeight="26.0" prefWidth="192.0" styleClass="textFealComBox" />
          </children>
       </HBox>
-      <Button fx:id="BUTConfarme" layoutX="292.0" layoutY="167.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" text="ok" />
-      <Label fx:id="LBRightORWrong" layoutX="142.0" layoutY="110.0" prefHeight="18.0" prefWidth="256.0" text=".........................................................................................." />
+      <Button fx:id="BUTConfarme" layoutX="292.0" layoutY="167.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" styleClass="button1" text="ok" />
+      <Label fx:id="LBRightORWrong" layoutX="160.0" layoutY="111.0" prefHeight="18.0" prefWidth="239.0" text=".........................................................................................." />
    </children>
 </AnchorPane>
