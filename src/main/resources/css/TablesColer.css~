@@ -1,5 +1,5 @@
 .table-row-cell:odd {
-    -fx-background-color: #D0E7D2; /* Light green for even rows */
+    -fx-background-color: #e7dad0; /* Light green for even rows */
 }
 
 .table-row-cell:even {
