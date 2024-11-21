@@ -189,10 +189,8 @@ public class StudentManagePageControler implements Initializable {
         String namePattern = "^[A-Za-z ]+$";
         String agePattern = "^[0-9]{2}$"; // A simple check for a two-digit number (age between 11-17)
         String gradePattern = "^[6-9]$|^10$|^11$"; // Ensures grade is between 6 and 11 (valid grades)
-        String datePattern = "^(0[1-9]|[12][0-9]|3[01])[-.](0[1-9]|1[0-2])[-.]([0-9]{4})$";
+        String datePattern = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$";
 
-
-        // Get and validate name
         String studentNam = TXTName.getText();
         if (studentNam.isEmpty() || !studentNam.matches(namePattern)) {
             new Alert(Alert.AlertType.ERROR, "Please enter a valid name (only letters and spaces)").show();
@@ -205,7 +203,6 @@ public class StudentManagePageControler implements Initializable {
             System.out.println("Invalid date format!");
         }
 
-        // Get and validate age
         String ageText = TXTAge.getText();
         if (ageText.isEmpty() || !ageText.matches(agePattern)) {
             new Alert(Alert.AlertType.ERROR, "Age must be between 11 and 17").show();
@@ -217,21 +214,18 @@ public class StudentManagePageControler implements Initializable {
             return;
         }
 
-        // Get and validate Date of Birth (DatePicker automatically validates the date format)
         String DateOB = DATEDateofBarth.getValue() != null ? DATEDateofBarth.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) : "";
         if (DateOB.isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Please select a valid date of birth").show();
             return;
         }
 
-        // Get and validate grade
         String grades = TXTGrade.getText();
         if (grades.isEmpty() || !grades.matches(gradePattern)) {
             new Alert(Alert.AlertType.ERROR, "Grade must be between 6 and 11").show();
             return;
         }
 
-        // Get and validate class (ensure a value is selected from ComboBox)
         String Studentclass = COMClass.getValue();
         if (Studentclass == null || Studentclass.isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Please select a class").show();

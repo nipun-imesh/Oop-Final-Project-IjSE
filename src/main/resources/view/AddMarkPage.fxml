@@ -9,46 +9,49 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ANKMaksManege" prefHeight="725.0" prefWidth="975.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.AddMarkPageControler">
+<AnchorPane fx:id="ANKMaksManege" prefHeight="725.0" prefWidth="975.0" styleClass="Ancorpain" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.AddMarkPageControler">
     <children>
-      <Label layoutX="38.0" layoutY="20.0" prefHeight="75.0" prefWidth="591.0" style="-fx-background-color: #DFE4E4FF;" styleClass="pop-rectangle" />
-            <Label layoutX="43.0" layoutY="51.0" prefHeight="26.0" prefWidth="66.0" text="Class" textOverrun="CLIP">
+      <Label layoutX="38.0" layoutY="66.0" prefHeight="75.0" prefWidth="591.0" style="-fx-background-color: #DFE4E4FF;" styleClass="pop-rectangle" />
+            <Label layoutX="43.0" layoutY="97.0" prefHeight="26.0" prefWidth="66.0" text="Class" textOverrun="CLIP">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-            <ComboBox fx:id="COMGrade" layoutX="340.0" layoutY="45.0" onAction="#selectGradeOnaction" prefHeight="26.0" prefWidth="94.0" styleClass="textFealComBox" />
-              <Label layoutX="42.0" layoutY="318.0" prefHeight="30.0" prefWidth="80.0" text="Mark id">
+            <ComboBox fx:id="COMGrade" layoutX="340.0" layoutY="91.0" onAction="#selectGradeOnaction" prefHeight="26.0" prefWidth="94.0" styleClass="textFealComBox" />
+              <Label layoutX="42.0" layoutY="364.0" prefHeight="30.0" prefWidth="80.0" text="Mark id">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-              <Label fx:id="LBMarkId" layoutX="127.0" layoutY="320.0" prefHeight="26.0" prefWidth="94.0" />
-              <Label layoutX="42.0" layoutY="135.0" prefHeight="30.0" prefWidth="80.0" text="Student id">
+              <Label fx:id="LBMarkId" layoutX="127.0" layoutY="366.0" prefHeight="26.0" prefWidth="94.0" />
+              <Label layoutX="42.0" layoutY="181.0" prefHeight="30.0" prefWidth="80.0" text="Student id">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-              <Label fx:id="LBStudentId" layoutX="133.0" layoutY="134.0" prefHeight="30.0" prefWidth="81.0" />
-              <Label layoutX="242.0" layoutY="136.0" prefHeight="27.0" prefWidth="109.0" text="Student Name">
+              <Label fx:id="LBStudentId" layoutX="133.0" layoutY="180.0" prefHeight="30.0" prefWidth="81.0" />
+              <Label layoutX="242.0" layoutY="182.0" prefHeight="27.0" prefWidth="109.0" text="Student Name">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-              <Label layoutX="330.0" layoutY="202.0" prefHeight="26.0" prefWidth="66.0" text="Exam id">
+              <Label layoutX="330.0" layoutY="248.0" prefHeight="26.0" prefWidth="66.0" text="Exam id">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-              <Label fx:id="LBExamId" layoutX="400.0" layoutY="194.0" prefHeight="26.0" prefWidth="84.0" />
-              <Label layoutX="38.0" layoutY="202.0" prefHeight="26.0" prefWidth="111.0" text="Exam name">
+              <Label fx:id="LBExamId" layoutX="400.0" layoutY="240.0" prefHeight="26.0" prefWidth="84.0" />
+              <Label layoutX="38.0" layoutY="248.0" prefHeight="26.0" prefWidth="111.0" text="Exam name">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-              <ComboBox fx:id="COBExamNAme" layoutX="129.0" layoutY="194.0" onAction="#selectExamNameOnAction" prefHeight="26.0" prefWidth="164.0" styleClass="textFealComBox" />
-                <Label layoutX="241.0" layoutY="322.0" prefHeight="26.0" prefWidth="80.0" text="Mark">
+              <ComboBox fx:id="COBExamNAme" layoutX="129.0" layoutY="240.0" onAction="#selectExamNameOnAction" prefHeight="26.0" prefWidth="164.0" styleClass="textFealComBox" />
+                <Label layoutX="241.0" layoutY="368.0" prefHeight="26.0" prefWidth="80.0" text="Mark">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-                <TextField fx:id="TXTMark" layoutX="339.0" layoutY="320.0" prefHeight="26.0" prefWidth="124.0" promptText="Add Mark" styleClass="textFealComBox" />
+                <TextField fx:id="TXTMark" layoutX="339.0" layoutY="366.0" prefHeight="26.0" prefWidth="124.0" promptText="Add Mark" styleClass="textFealComBox" />
               <Button fx:id="BUTpalesallMark" layoutX="506.0" layoutY="678.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#palesAllMarkAction" prefHeight="27.0" prefWidth="433.0" styleClass="button1" stylesheets="@../css/Styile.css" text="Pales all mark" textFill="WHITE">
                   <font>
                       <Font name="Calibri Bold" size="14.0" />
@@ -57,7 +60,7 @@
                       <Cursor fx:constant="CLOSED_HAND" />
                   </cursor>
               </Button>
-             <TableView fx:id="TBLMarkTable" layoutX="13.0" layoutY="462.0" prefHeight="170.0" prefWidth="950.0">
+             <TableView fx:id="TBLMarkTable" layoutX="13.0" layoutY="494.0" prefHeight="170.0" prefWidth="950.0">
                   <columns>
             <TableColumn fx:id="COLStudenID" minWidth="0.0" prefWidth="75.19997882843018" text="Student ID" />
                       <TableColumn fx:id="COLStudent" minWidth="0.0" prefWidth="176.79995441436768" text="Student Name" />
@@ -69,16 +72,16 @@
             <TableColumn fx:id="COLDelete" minWidth="0.0" prefWidth="153.5999755859375" text="Delete" />
                   </columns>
               </TableView>
-      <Label layoutX="245.0" layoutY="49.0" prefHeight="30.0" prefWidth="72.0" text="Grade">
+      <Label layoutX="245.0" layoutY="95.0" prefHeight="30.0" prefWidth="72.0" text="Grade">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="42.0" layoutY="260.0" prefHeight="18.0" prefWidth="80.0" text="Subject ID">
+      <Label layoutX="42.0" layoutY="306.0" prefHeight="18.0" prefWidth="80.0" text="Subject ID">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="LBStudentName" layoutX="343.0" layoutY="134.0" prefHeight="30.0" prefWidth="164.0" />
-      <Button fx:id="BUTSearch" layoutX="497.0" layoutY="44.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="27.0" prefWidth="112.0" styleClass="button1" stylesheets="@../css/Styile.css" text="search" textFill="WHITE">
+      <Label fx:id="LBStudentName" layoutX="343.0" layoutY="180.0" prefHeight="30.0" prefWidth="164.0" />
+      <Button fx:id="BUTSearch" layoutX="497.0" layoutY="90.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#searchOnAction" prefHeight="27.0" prefWidth="112.0" styleClass="button1" stylesheets="@../css/Styile.css" text="search" textFill="WHITE">
          <font>
             <Font name="Calibri Bold" size="14.0" />
          </font>
@@ -86,28 +89,57 @@
             <Cursor fx:constant="CLOSED_HAND" />
          </cursor>
       </Button>
-      <TableView fx:id="TBLStudent" layoutX="574.0" layoutY="119.0" onMouseClicked="#setStudentTBL" prefHeight="270.0" prefWidth="386.0">
+      <TableView fx:id="TBLStudent" layoutX="574.0" layoutY="165.0" onMouseClicked="#setStudentTBL" prefHeight="270.0" prefWidth="386.0">
         <columns>
           <TableColumn fx:id="COLsetStudentID" prefWidth="132.800048828125" text="Sudent ID" />
           <TableColumn fx:id="COLsetStudeName" minWidth="0.0" prefWidth="246.4000244140625" text="Student Name" />
         </columns>
       </TableView>
-      <ComboBox fx:id="COMSetClass" layoutX="135.0" layoutY="45.0" onAction="#selectClassOnAction" prefHeight="26.0" prefWidth="84.0" styleClass="textFealComBox" />
-      <Button fx:id="BUTAddMark" layoutX="404.0" layoutY="407.0" mnemonicParsing="false" onAction="#setMArkOnTableAction" prefHeight="26.0" prefWidth="141.0" styleClass="button1" text="Add" />
-      <Label layoutX="242.0" layoutY="260.0" prefHeight="18.0" prefWidth="82.0" text="Subject Name">
+      <ComboBox fx:id="COMSetClass" layoutX="135.0" layoutY="91.0" onAction="#selectClassOnAction" prefHeight="26.0" prefWidth="84.0" styleClass="textFealComBox" />
+      <Button fx:id="BUTAddMark" layoutX="404.0" layoutY="447.0" mnemonicParsing="false" onAction="#setMArkOnTableAction" prefHeight="26.0" prefWidth="141.0" styleClass="button1" text="Add" />
+      <Label layoutX="242.0" layoutY="306.0" prefHeight="18.0" prefWidth="82.0" text="Subject Name">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="LBSubjectName" layoutX="339.0" layoutY="256.0" prefHeight="26.0" prefWidth="207.0" />
-      <Line endX="100.0" layoutX="442.0" layoutY="280.0" startX="-100.0" />
-      <ComboBox fx:id="COMSubjectID" layoutX="130.0" layoutY="256.0" onAction="#selectSubjectOnAction" prefHeight="26.0" prefWidth="94.0" styleClass="textFealComBox" />
-      <Line endX="-16.599990844726562" layoutX="232.0" layoutY="158.0" startX="-100.0" />
-      <Line endX="63.79998779296875" layoutX="442.0" layoutY="156.0" startX="-100.0" />
-      <Line endX="-16.599990844726562" layoutX="501.0" layoutY="220.0" startX="-100.0" />
-      <Line endX="-5.5999908447265625" layoutX="227.0" layoutY="340.0" startX="-100.0" />
+      <Label fx:id="LBSubjectName" layoutX="339.0" layoutY="302.0" prefHeight="26.0" prefWidth="207.0" />
+      <Line endX="100.0" layoutX="442.0" layoutY="326.0" startX="-100.0" />
+      <ComboBox fx:id="COMSubjectID" layoutX="130.0" layoutY="302.0" onAction="#selectSubjectOnAction" prefHeight="26.0" prefWidth="94.0" styleClass="textFealComBox" />
+      <Line endX="-16.599990844726562" layoutX="232.0" layoutY="204.0" startX="-100.0" />
+      <Line endX="63.79998779296875" layoutX="442.0" layoutY="202.0" startX="-100.0" />
+      <Line endX="-16.599990844726562" layoutX="501.0" layoutY="266.0" startX="-100.0" />
+      <Line endX="-5.5999908447265625" layoutX="227.0" layoutY="386.0" startX="-100.0" />
+      <Line endX="393.79998779296875" layoutX="163.0" layoutY="418.0" startX="-100.0" strokeWidth="3.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Button layoutX="313.0" layoutY="-11.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="370.0" styleClass="button21" text="Add mark">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
     </children>
    <stylesheets>
       <URL value="@../css/Styile.css" />
       <URL value="@../css/TablesColer.css" />
+      <URL value="@../css/Ancherpain.css" />
    </stylesheets>
 </AnchorPane>

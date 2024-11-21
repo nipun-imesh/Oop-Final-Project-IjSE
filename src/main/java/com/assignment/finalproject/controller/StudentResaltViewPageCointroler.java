@@ -96,15 +96,23 @@ public class StudentResaltViewPageCointroler implements Initializable {
         String grade = String.valueOf(COMGrade.getValue());
         String examName = String.valueOf(COMExam.getValue());
 
+        System.out.println("UI Inputs:");
+        System.out.println("studentId: " + studentId);
+        System.out.println("classId: " + classId);
+        System.out.println("grade: " + grade);
+        System.out.println("examName: " + examName);
+
         try {
-           ArrayList<GetResaltTM> getResaltTMS =studentResaliViewModel.searchResalt(studentId, classId, grade, examName);
+            ArrayList<GetResaltTM> getResaltTMS = studentResaliViewModel.searchResalt(classId, examName, grade, studentId);
+            if (getResaltTMS.isEmpty()) {
+                System.out.println("No results found.");
+            }
             TBLResalt.setItems(FXCollections.observableArrayList(getResaltTMS));
-
-
+            setCellValues();
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
-
     }
 
     @FXML

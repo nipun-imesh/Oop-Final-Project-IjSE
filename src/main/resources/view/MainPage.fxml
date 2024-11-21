@@ -2,6 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -11,28 +13,77 @@
    <children>
       <Pane layoutY="-1.0" prefHeight="720.0" prefWidth="275.0" styleClass="Backgrount1" stylesheets="@../css/Styile.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox layoutX="19.0" layoutY="114.0" prefHeight="523.0" prefWidth="238.0" spacing="5.0">
+            <VBox layoutX="7.0" layoutY="111.0" prefHeight="523.0" prefWidth="258.0" spacing="5.0">
                <children>
-                  <Button fx:id="BUTStudentManage" mnemonicParsing="false" onAction="#StudentManageAction" prefHeight="74.0" prefWidth="238.0" styleClass="menu-item" text="Student Manage">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin></Button>
-                  <Button fx:id="BUTExamManage" layoutX="10.0" layoutY="80.0" mnemonicParsing="false" onAction="#AddExamAction" prefHeight="69.0" prefWidth="238.0" styleClass="menu-item" text="Add Exam" VBox.vgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin></Button>
-                  <Button fx:id="BUTAddMark" layoutX="10.0" layoutY="328.0" mnemonicParsing="false" onAction="#addMarkOnAction" prefHeight="70.0" prefWidth="238.0" styleClass="menu-item" text="Add Maks" wrapText="true">
+                  <Button fx:id="BUTStudentManage" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="0.0" mnemonicParsing="false" onAction="#StudentManageAction" prefHeight="74.0" prefWidth="238.0" styleClass="menu-item" text="Student Manage">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
-                  </Button>
-                  <Button fx:id="BUTMaksManage" layoutX="10.0" layoutY="151.0" mnemonicParsing="false" onAction="#MaksManageAction" prefHeight="70.0" prefWidth="238.0" styleClass="menu-item" text="Maks Manage" wrapText="true">
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="33.0">
+                           <image>
+                              <Image url="@../imege/8666755_users_group_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="BUTExamManage" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="40.0" layoutX="10.0" layoutY="80.0" mnemonicParsing="false" onAction="#AddExamAction" prefHeight="69.0" prefWidth="238.0" styleClass="menu-item" text="Add Exam" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
-                     </VBox.margin></Button>
-                  <Button fx:id="BUTParentManage" mnemonicParsing="false" onAction="#ParentManageAction" prefHeight="68.0" prefWidth="238.0" styleClass="menu-item" text="Perent Manage" />
-                  <Button fx:id="BUTExamManage" layoutX="10.0" layoutY="314.0" mnemonicParsing="false" onAction="#ExamManageAction" prefHeight="68.0" prefWidth="238.0" styleClass="menu-item" text="Exam Manage" />
-                  <Button fx:id="BUTSendMail" layoutX="10.0" layoutY="387.0" mnemonicParsing="false" onAction="#sendMailAction" prefHeight="68.0" prefWidth="238.0" styleClass="menu-item" text="Send Mail" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="31.0">
+                           <image>
+                              <Image url="@../imege/file.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="BUTAddMark" contentDisplay="RIGHT" graphicTextGap="40.0" layoutX="10.0" layoutY="328.0" mnemonicParsing="false" onAction="#addMarkOnAction" prefHeight="70.0" prefWidth="238.0" styleClass="menu-item" text="Add Maks" wrapText="true">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="29.0">
+                           <image>
+                              <Image url="@../imege/test%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="BUTMaksManage" contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" onAction="#MaksManageAction" prefHeight="70.0" prefWidth="238.0" styleClass="menu-item" text="Maks Manage" wrapText="true" VBox.vgrow="ALWAYS">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="27.0" fitWidth="31.0">
+                           <image>
+                              <Image url="@../imege/attention.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="BUTParentManage" contentDisplay="RIGHT" graphicTextGap="5.0" mnemonicParsing="false" onAction="#ParentManageAction" prefHeight="68.0" prefWidth="238.0" styleClass="menu-item" text="Perent Manage">
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="33.0">
+                           <image>
+                              <Image url="@../imege/inheritance.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="BUTExamManage" contentDisplay="RIGHT" graphicTextGap="15.0" layoutX="10.0" layoutY="314.0" mnemonicParsing="false" onAction="#ExamManageAction" prefHeight="68.0" prefWidth="238.0" styleClass="menu-item" text="Exam Manage">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="34.0">
+                           <image>
+                              <Image url="@../imege/schedule.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="BUTSendMail" contentDisplay="RIGHT" graphicTextGap="35.0" layoutX="10.0" layoutY="387.0" mnemonicParsing="false" onAction="#sendMailAction" prefHeight="68.0" prefWidth="238.0" styleClass="menu-item" text="Send Mail">
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="33.0">
+                           <image>
+                              <Image url="@../imege/mail.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
                </children>
             </VBox>
             <Button layoutX="75.0" layoutY="659.0" mnemonicParsing="false" onAction="#goBackAction" prefHeight="27.0" prefWidth="113.0" styleClass="button1" stylesheets="@../css/Styile.css" text="LOG OUT">

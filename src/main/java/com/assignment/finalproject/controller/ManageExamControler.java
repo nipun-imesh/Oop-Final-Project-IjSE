@@ -152,8 +152,8 @@ public class ManageExamControler implements Initializable {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "An error occurred while deleting. Please try again.").show();
         }
+        reset();
         TBLSetExam.refresh();
-        setCellValues();
     }
 
     @FXML
@@ -167,7 +167,8 @@ public class ManageExamControler implements Initializable {
         String examDate = DTPDate.getValue().toString();
         String subjectID = String.valueOf(COMSubject.getValue());
 
-        if(examName.isEmpty() || grade.isEmpty() || hallName.isEmpty() || examTime.isEmpty() || examDate.isEmpty() || subjectID.isEmpty()){
+
+        if(examName.isEmpty() || grade.isEmpty() || hallName.isEmpty() || examTime == null|| examDate == null || subjectID.isEmpty()){
             new Alert(Alert.AlertType.ERROR,"Please Enter All Fields").show();
             return;
         }
@@ -187,6 +188,7 @@ public class ManageExamControler implements Initializable {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "An error occurred while updating. Please try again.").show();
         }
+        reset();
         TBLSetExam.refresh();
     }
 

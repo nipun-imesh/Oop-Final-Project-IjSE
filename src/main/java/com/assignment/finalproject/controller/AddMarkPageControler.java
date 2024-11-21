@@ -111,6 +111,7 @@ public class AddMarkPageControler implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         try {
             loadGrade();
             loadClass((ComboBox<String>) COMSetClass);
@@ -122,6 +123,10 @@ public class AddMarkPageControler implements Initializable {
 
     @FXML
     void palesAllMarkAction(ActionEvent event) {
+
+        if(addMarkCartTMS.isEmpty()) {
+            return;
+        }
 
         ArrayList<PlaysStudentAllMarkDTO> playsStudentAllMarkDTOS = new ArrayList<>();
 
@@ -151,8 +156,8 @@ public class AddMarkPageControler implements Initializable {
 
     @FXML
     void searchOnAction(ActionEvent event) throws SQLException {
-        if(COMSetClass.getValue().isEmpty() || COMGrade.getValue().isEmpty()){
-            new Alert(Alert.AlertType.ERROR,"fust Select Class And Grade");
+        if( COMSetClass.getValue() == null ||  COMGrade.getValue() == null) {
+           return;
         }else{
             BUTAddMark.setDisable(false);
         }
@@ -308,6 +313,7 @@ public class AddMarkPageControler implements Initializable {
             new Alert(Alert.AlertType.ERROR, "Please enter a valid numeric mark").show();
         }
         TXTMark.setStyle("-fx-border-color: #000000;");
+        TXTMark.clear();
     }
 
     @FXML

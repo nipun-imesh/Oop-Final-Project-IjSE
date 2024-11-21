@@ -1,0 +1,33 @@
+.Ancorpain{
+
+    -fx-background-color: radial-gradient(
+            focus-angle 0deg,
+            focus-distance 0%,
+            center 50% 50%,
+            radius 100%,
+            reflect,
+            rgba(255,255,255,1) 0%,
+            rgba(87,87,87,1) 94%,
+            rgba(0,0,0,1) 100%
+    );
+}
+
+.button21 {
+    -fx-background-color: #efeeee;
+    -fx-background-radius: 15;
+    -fx-font-family: "Math italic";
+    -fx-padding: 10 20;
+    -fx-border-width: 2;
+    -fx-border-radius: 15;
+    -fx-background-insets: 0 0 5 0;
+    -fx-border-insets: 0 0 5 0;
+    -fx-effect: dropshadow(three-pass-box, rgb(255, 72, 0), 10, 0, 0, 5);
+    -fx-font-family: "Monospaced";  /* Font එකේ නම */
+    -fx-font-size: 16px;       /* Font එකේ විශාලත්වය */
+    -fx-font-weight: bold;     /* Bold කරන්න */
+    -fx-font-style: italic;
+}
+
+
+
+

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ANKaddStuPErent" prefHeight="399.0" prefWidth="636.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.AddParentToStudentPageControler">
+<AnchorPane fx:id="ANKaddStuPErent" prefHeight="399.0" prefWidth="636.0" styleClass="Ancorpain" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.AddParentToStudentPageControler">
    <children>
       <VBox fx:id="Vbox" layoutY="70.0" prefHeight="362.0" prefWidth="636.0">
          <children>
@@ -25,7 +25,7 @@
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font></Label>
-                        <Label fx:id="LBPerentID" layoutX="10.0" layoutY="21.0" prefHeight="18.0" prefWidth="154.0" text="1" />
+                        <Label fx:id="LBPerentID" layoutX="10.0" layoutY="21.0" prefHeight="18.0" prefWidth="154.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="596.0">
@@ -101,5 +101,6 @@
    <stylesheets>
       <URL value="@../css/Styile.css" />
       <URL value="@../css/TablesColer.css" />
+      <URL value="@../css/Ancherpain.css" />
    </stylesheets>
 </AnchorPane>

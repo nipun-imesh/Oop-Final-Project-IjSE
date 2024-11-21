@@ -156,10 +156,16 @@ public class ManageMarkControler implements Initializable {
 
     @FXML
     void updateMarkOnAction(ActionEvent event) {
-        double mark = Double.parseDouble(TXTNewMark.getText());
+        String getMark = (TXTNewMark.getText());
+
+        if( getMark.isEmpty()){
+            return;
+        }
+        double mark = Double.parseDouble(getMark);
         String studentId = LBStudentId.getText();
         String subjectId = LBSubjectID.getText();
         String examId = LBExamID.getText();
+
 
         try {
             boolean isUpdated = manageMarkModel.updateMark(mark, studentId, subjectId, examId);

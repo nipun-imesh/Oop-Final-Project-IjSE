@@ -8,28 +8,31 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ANKMarkManage" prefHeight="725.0" prefWidth="975.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.ManageMarkControler">
+<AnchorPane fx:id="ANKMarkManage" prefHeight="725.0" prefWidth="975.0" styleClass="Ancorpain" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.ManageMarkControler">
    <children>
-      <TableView fx:id="TBLSelectStudent" layoutX="477.0" layoutY="48.0" onMouseClicked="#selectStudentOnAction" prefHeight="200.0" prefWidth="483.0">
+      <TableView fx:id="TBLSelectStudent" layoutX="477.0" layoutY="98.0" onMouseClicked="#selectStudentOnAction" prefHeight="200.0" prefWidth="483.0">
         <columns>
           <TableColumn fx:id="COLStudentID" prefWidth="163.20001220703125" text="Student ID " />
           <TableColumn fx:id="COLStudentName" prefWidth="317.60003662109375" text="Student Name" />
         </columns>
       </TableView>
-      <ComboBox fx:id="COMSelectClass" layoutX="231.0" layoutY="50.0" onAction="#isSelectClassOnAction" prefWidth="150.0" styleClass="textFealComBox" stylesheets="@../css/Styile.css" />
-      <ComboBox fx:id="COMSelectGarde" layoutX="230.0" layoutY="109.0" onAction="#isSelectGradeOnAction" prefWidth="150.0" styleClass="textFealComBox" stylesheets="@../css/Styile.css" />
-      <Label layoutX="91.0" layoutY="46.0" prefHeight="26.0" prefWidth="106.0" text="Select Class">
+      <ComboBox fx:id="COMSelectClass" layoutX="231.0" layoutY="100.0" onAction="#isSelectClassOnAction" prefWidth="150.0" styleClass="textFealComBox" stylesheets="@../css/Styile.css" />
+      <ComboBox fx:id="COMSelectGarde" layoutX="230.0" layoutY="159.0" onAction="#isSelectGradeOnAction" prefWidth="150.0" styleClass="textFealComBox" stylesheets="@../css/Styile.css" />
+      <Label layoutX="91.0" layoutY="96.0" prefHeight="26.0" prefWidth="106.0" text="Select Class">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="91.0" layoutY="109.0" prefHeight="26.0" prefWidth="106.0" text="Select Grade">
+      <Label layoutX="91.0" layoutY="159.0" prefHeight="26.0" prefWidth="106.0" text="Select Grade">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <TableView fx:id="TBLSelectMark" layoutX="90.0" layoutY="300.0" onMouseClicked="#selectMarkonAction" prefHeight="200.0" prefWidth="794.0">
+      <TableView fx:id="TBLSelectMark" layoutX="90.0" layoutY="332.0" onMouseClicked="#selectMarkonAction" prefHeight="200.0" prefWidth="794.0">
          <columns>
             <TableColumn fx:id="COLExamID" prefWidth="116.0" text="Exam ID" />
             <TableColumn fx:id="COLExamName" prefWidth="190.4001007080078" text="Exam Name" />
@@ -38,46 +41,121 @@
             <TableColumn fx:id="COLMark" prefWidth="149.60003662109375" text="Mark" />
          </columns>
       </TableView>
-      <Label layoutX="91.0" layoutY="637.0" prefHeight="26.0" prefWidth="106.0" text="Set New Mark">
+      <Label layoutX="91.0" layoutY="666.0" prefHeight="26.0" prefWidth="106.0" text="Set New Mark">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <TextField fx:id="TXTNewMark" layoutX="209.0" layoutY="637.0" promptText="New Mark" styleClass="textFealComBox" />
-      <Label layoutX="91.0" layoutY="594.0" prefHeight="26.0" prefWidth="106.0" text="Old Mark">
+      <TextField fx:id="TXTNewMark" layoutX="209.0" layoutY="666.0" promptText="New Mark" styleClass="textFealComBox" />
+      <Label layoutX="91.0" layoutY="623.0" prefHeight="26.0" prefWidth="106.0" text="Old Mark">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="LBOldMark" layoutX="212.0" layoutY="590.0" prefHeight="26.0" prefWidth="106.0" />
-      <Line endX="16.4000244140625" endY="0.4000244140625" layoutX="294.0" layoutY="617.0" startX="-82.59999084472656" startY="0.4000244140625" />
-      <Button fx:id="BUTDelete" layoutX="754.0" layoutY="638.0" mnemonicParsing="false" onAction="#delectDataOnAction" prefHeight="26.0" prefWidth="129.0" styleClass="button1" text="Delete" />
-      <Button fx:id="BUTUpdate" layoutX="589.0" layoutY="638.0" mnemonicParsing="false" onAction="#updateMarkOnAction" prefHeight="26.0" prefWidth="129.0" styleClass="button1" text="Update" />
-      <Label layoutX="91.0" layoutY="172.0" prefHeight="26.0" prefWidth="106.0" text="Student ID">
+      <Label fx:id="LBOldMark" layoutX="212.0" layoutY="619.0" prefHeight="26.0" prefWidth="106.0" />
+      <Line endX="16.4000244140625" endY="0.4000244140625" layoutX="294.0" layoutY="646.0" startX="-82.59999084472656" startY="0.4000244140625" />
+      <Button fx:id="BUTDelete" layoutX="754.0" layoutY="673.0" mnemonicParsing="false" onAction="#delectDataOnAction" prefHeight="26.0" prefWidth="129.0" styleClass="button1" text="Delete" />
+      <Button fx:id="BUTUpdate" layoutX="589.0" layoutY="673.0" mnemonicParsing="false" onAction="#updateMarkOnAction" prefHeight="26.0" prefWidth="129.0" styleClass="button1" text="Update" />
+      <Label layoutX="91.0" layoutY="222.0" prefHeight="26.0" prefWidth="106.0" text="Student ID">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="91.0" layoutY="222.0" prefHeight="26.0" prefWidth="106.0" text="Student Name">
+      <Label layoutX="91.0" layoutY="272.0" prefHeight="26.0" prefWidth="106.0" text="Student Name">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="LBStudentId" layoutX="230.0" layoutY="172.0" prefHeight="26.0" prefWidth="148.0" />
-      <Label fx:id="LBStudentName" layoutX="229.0" layoutY="222.0" prefHeight="26.0" prefWidth="148.0" />
-      <Label layoutX="91.0" layoutY="556.0" prefHeight="26.0" prefWidth="106.0" text="Subject ID">
+      <Label fx:id="LBStudentId" layoutX="230.0" layoutY="220.0" prefHeight="26.0" prefWidth="148.0" />
+      <Label fx:id="LBStudentName" layoutX="229.0" layoutY="272.0" prefHeight="26.0" prefWidth="148.0" />
+      <Label layoutX="91.0" layoutY="585.0" prefHeight="26.0" prefWidth="106.0" text="Subject ID">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="LBSubjectID" layoutX="212.0" layoutY="556.0" prefHeight="26.0" prefWidth="106.0" />
-      <Label layoutX="91.0" layoutY="520.0" prefHeight="26.0" prefWidth="106.0" text="Exam ID">
+      <Label fx:id="LBSubjectID" layoutX="212.0" layoutY="585.0" prefHeight="26.0" prefWidth="106.0" />
+      <Label layoutX="91.0" layoutY="549.0" prefHeight="26.0" prefWidth="106.0" text="Exam ID">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="LBExamID" layoutX="212.0" layoutY="520.0" prefHeight="26.0" prefWidth="106.0" />
-      <Line endX="64.20001220703125" layoutX="313.0" layoutY="198.0" startX="-82.59999084472656" startY="0.4000244140625" />
+      <Label fx:id="LBExamID" layoutX="212.0" layoutY="549.0" prefHeight="26.0" prefWidth="106.0" />
       <Line endX="64.20001220703125" layoutX="313.0" layoutY="248.0" startX="-82.59999084472656" startY="0.4000244140625" />
-      <Line endX="13.20001220703125" endY="0.4000244140625" layoutX="295.0" layoutY="582.0" startX="-82.59999084472656" startY="0.4000244140625" />
-      <Line endX="13.20001220703125" endY="0.4000244140625" layoutX="295.0" layoutY="545.0" startX="-82.59999084472656" startY="0.4000244140625" />
+      <Line endX="64.20001220703125" layoutX="313.0" layoutY="298.0" startX="-82.59999084472656" startY="0.4000244140625" />
+      <Line endX="13.20001220703125" endY="0.4000244140625" layoutX="295.0" layoutY="611.0" startX="-82.59999084472656" startY="0.4000244140625" />
+      <Line endX="13.20001220703125" endY="0.4000244140625" layoutX="295.0" layoutY="574.0" startX="-82.59999084472656" startY="0.4000244140625" />
+      <Button layoutX="313.0" layoutY="-12.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="370.0" styleClass="button21" text="Mark Manage">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <Line endX="-28.79998779296875" endY="242.60000610351562" layoutX="228.0" layoutY="75.0" startX="-28.79998779296875" startY="-8.400001525878906" strokeWidth="3.0" styleClass="Xline">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="749.199951171875" layoutX="168.0" layoutY="318.0" startX="-100.0" strokeWidth="3.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="-28.79998779296875" endY="242.60000610351562" layoutX="217.0" layoutY="458.0" startX="-28.799972534179688" startY="98.79998779296875" strokeWidth="3.0" styleClass="Xline">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
    </children>
    <stylesheets>
       <URL value="@../css/Styile.css" />
       <URL value="@../css/TablesColer.css" />
+      <URL value="@../css/Ancherpain.css" />
    </stylesheets>
 </AnchorPane>

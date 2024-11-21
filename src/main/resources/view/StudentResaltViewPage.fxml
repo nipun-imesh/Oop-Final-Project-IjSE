@@ -8,28 +8,92 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ANKViewResalt" prefHeight="500.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.StudentResaltViewPageCointroler">
+<AnchorPane fx:id="ANKViewResalt" prefHeight="500.0" prefWidth="750.0" styleClass="Ancorpain" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.StudentResaltViewPageCointroler">
    <children>
-      <ComboBox fx:id="COMClass" layoutX="120.0" layoutY="47.0" onAction="#selectClassOnAction" prefWidth="150.0" styleClass="textFealComBox" />
-      <ComboBox fx:id="COMExam" layoutX="120.0" layoutY="124.0" onAction="#selectExamOnAaction" prefWidth="150.0" styleClass="textFealComBox" />
-      <ComboBox fx:id="COMGrade" layoutX="434.0" layoutY="47.0" onAction="#selectGradeOnAction" prefWidth="150.0" styleClass="textFealComBox" />
+      <ComboBox fx:id="COMClass" layoutX="120.0" layoutY="63.0" onAction="#selectClassOnAction" prefWidth="150.0" styleClass="textFealComBox" />
+      <ComboBox fx:id="COMExam" layoutX="120.0" layoutY="140.0" onAction="#selectExamOnAaction" prefWidth="150.0" styleClass="textFealComBox" />
+      <ComboBox fx:id="COMGrade" layoutX="434.0" layoutY="63.0" onAction="#selectGradeOnAction" prefWidth="150.0" styleClass="textFealComBox" />
       <TableView fx:id="TBLResalt" layoutX="42.0" layoutY="216.0" prefHeight="234.0" prefWidth="666.0">
         <columns>
           <TableColumn fx:id="COLSubjectName" prefWidth="334.4000053405762" text="Subject Name" />
           <TableColumn fx:id="COLSubjectMaek" prefWidth="331.199951171875" text="Sabject Mark" />
         </columns>
       </TableView>
-      <TextField fx:id="TXTStudentID" layoutX="434.0" layoutY="124.0" promptText="Student ID" styleClass="textFealComBox" />
-      <Label layoutX="336.0" layoutY="50.0" prefHeight="18.0" prefWidth="78.0" text="Grade" />
-      <Label layoutX="336.0" layoutY="128.0" prefHeight="18.0" prefWidth="78.0" text="Student ID" />
-      <Label layoutX="42.0" layoutY="50.0" prefHeight="18.0" prefWidth="78.0" text="Class" />
-      <Label layoutX="42.0" layoutY="128.0" prefHeight="18.0" prefWidth="78.0" text="Exam" />
+      <TextField fx:id="TXTStudentID" layoutX="434.0" layoutY="140.0" promptText="Student ID" styleClass="textFealComBox" />
+      <Label layoutX="336.0" layoutY="66.0" prefHeight="18.0" prefWidth="78.0" text="Grade">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="336.0" layoutY="144.0" prefHeight="18.0" prefWidth="78.0" text="Student ID">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="42.0" layoutY="66.0" prefHeight="18.0" prefWidth="78.0" text="Class">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label layoutX="42.0" layoutY="144.0" prefHeight="18.0" prefWidth="78.0" text="Exam">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <Button fx:id="BUTBack" layoutX="592.0" layoutY="459.0" mnemonicParsing="false" onAction="#goLoginPageOnAction" prefHeight="26.0" prefWidth="115.0" styleClass="button1" text="Back" />
       <Button fx:id="BUTSearch" layoutX="592.0" layoutY="178.0" mnemonicParsing="false" onAction="#searchResaltOnaction" prefHeight="26.0" prefWidth="115.0" styleClass="button1" text="Search" />
+      <Line endX="-28.79998779296875" endY="242.60000610351562" layoutX="133.0" layoutY="-55.0" startX="-28.800003051757812" startY="131.79998779296875" strokeWidth="3.0" styleClass="Xline">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="424.0" layoutX="152.0" layoutY="190.0" startX="-100.0" strokeWidth="3.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
    </children>
    <stylesheets>
       <URL value="@../css/Styile.css" />
       <URL value="@../css/TablesColer.css" />
+      <URL value="@../css/Ancherpain.css" />
    </stylesheets>
 </AnchorPane>

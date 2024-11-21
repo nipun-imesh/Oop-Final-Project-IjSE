@@ -12,12 +12,15 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="ANKManageExam" prefHeight="725.0" prefWidth="975.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.ManageExamControler">
+<AnchorPane fx:id="ANKManageExam" prefHeight="725.0" prefWidth="975.0" styleClass="Ancorpain" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.ManageExamControler">
    <children>
-      <Label alignment="BOTTOM_LEFT" layoutX="53.0" layoutY="291.0" prefHeight="31.0" prefWidth="135.0" text="Exam Shedule ID">
+      <Label alignment="BOTTOM_LEFT" layoutX="53.0" layoutY="353.0" prefHeight="31.0" prefWidth="135.0" text="Exam Shedule ID">
          <padding>
             <Insets left="3.0" />
          </padding>
@@ -25,38 +28,38 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="LBExamShedulID" alignment="BOTTOM_LEFT" layoutX="201.0" layoutY="291.0" prefHeight="31.0" prefWidth="242.0" />
-      <ComboBox fx:id="COBSelectHall" layoutX="194.0" layoutY="484.0" prefHeight="31.0" prefWidth="206.0" styleClass="textFealComBox" />
-      <Label alignment="BOTTOM_LEFT" layoutX="56.0" layoutY="342.0" prefHeight="31.0" prefWidth="142.0" text="Exam ID">
+      <Label fx:id="LBExamShedulID" alignment="BOTTOM_LEFT" layoutX="201.0" layoutY="353.0" prefHeight="31.0" prefWidth="242.0" />
+      <ComboBox fx:id="COBSelectHall" layoutX="194.0" layoutY="511.0" prefHeight="31.0" prefWidth="206.0" styleClass="textFealComBox" />
+      <Label alignment="BOTTOM_LEFT" layoutX="56.0" layoutY="404.0" prefHeight="31.0" prefWidth="142.0" text="Exam ID">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label fx:id="LBExamID" alignment="BOTTOM_LEFT" layoutX="201.0" layoutY="340.0" prefHeight="34.0" prefWidth="242.0" />
-      <Label alignment="BOTTOM_LEFT" layoutX="53.0" layoutY="409.0" prefHeight="31.0" prefWidth="102.0" text="Exam Name">
+      <Label fx:id="LBExamID" alignment="BOTTOM_LEFT" layoutX="201.0" layoutY="402.0" prefHeight="34.0" prefWidth="242.0" />
+      <Label alignment="BOTTOM_LEFT" layoutX="53.0" layoutY="457.0" prefHeight="31.0" prefWidth="102.0" text="Exam Name">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <TextField fx:id="TXTExamName" alignment="BOTTOM_LEFT" layoutX="194.0" layoutY="409.0" prefHeight="31.0" prefWidth="206.0" promptText="Name" styleClass="textFealComBox" />
-      <Line endX="132.1999969482422" endY="1.2000045776367188" layoutX="63.0" layoutY="318.0" startX="379.0" />
-      <DatePicker fx:id="DTPDate" layoutX="573.0" layoutY="291.0" prefHeight="31.0" prefWidth="206.0" promptText="Data" styleClass="textFealComBox" />
-      <Label alignment="BOTTOM_LEFT" layoutX="575.0" layoutY="342.0" prefHeight="31.0" prefWidth="82.0" text="Time" />
-      <TextField fx:id="TXTTime" layoutX="667.0" layoutY="341.0" prefHeight="31.0" prefWidth="111.0" promptText="00.00h" />
-      <Line endX="132.1999969482422" endY="1.2000045776367188" layoutX="63.0" layoutY="373.0" startX="379.3999938964844" startY="1.20001220703125" />
+      <TextField fx:id="TXTExamName" alignment="BOTTOM_LEFT" layoutX="194.0" layoutY="457.0" prefHeight="31.0" prefWidth="206.0" promptText="Name" styleClass="textFealComBox" />
+      <Line endX="132.1999969482422" endY="1.2000045776367188" layoutX="63.0" layoutY="380.0" startX="379.0" />
+      <DatePicker fx:id="DTPDate" layoutX="573.0" layoutY="366.0" prefHeight="31.0" prefWidth="206.0" promptText="Data" styleClass="textFealComBox" />
+      <Label alignment="BOTTOM_LEFT" layoutX="575.0" layoutY="417.0" prefHeight="31.0" prefWidth="82.0" text="Time" />
+      <TextField fx:id="TXTTime" layoutX="667.0" layoutY="416.0" prefHeight="31.0" prefWidth="111.0" promptText="00.00h" />
+      <Line endX="132.1999969482422" endY="1.2000045776367188" layoutX="63.0" layoutY="435.0" startX="379.3999938964844" startY="1.20001220703125" />
       <ComboBox fx:id="COMSubject" layoutX="194.0" layoutY="568.0" prefHeight="31.0" prefWidth="206.0" styleClass="textFealComBox" />
       <Label fx:id="LBSetsubject" layoutX="426.0" layoutY="567.0" prefHeight="31.0" prefWidth="271.0" />
       <Line endX="152.18994140625" endY="1.2000045776367188" layoutX="275.0" layoutY="596.0" startX="421.38995361328125" startY="1.20001220703125" />
-      <ComboBox fx:id="COMSelectClass" layoutX="175.0" layoutY="22.0" onAction="#selectGradeOnAction" prefHeight="31.0" prefWidth="150.0" styleClass="textFealComBox" />
+      <ComboBox fx:id="COMSelectClass" layoutX="175.0" layoutY="62.0" onAction="#selectGradeOnAction" prefHeight="31.0" prefWidth="150.0" styleClass="textFealComBox" />
       <Label alignment="BOTTOM_LEFT" layoutX="53.0" layoutY="560.0" prefHeight="31.0" prefWidth="102.0" text="Subject ID">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label alignment="BOTTOM_LEFT" layoutX="53.0" layoutY="484.0" prefHeight="31.0" prefWidth="102.0" text="Hall Name">
+      <Label alignment="BOTTOM_LEFT" layoutX="53.0" layoutY="511.0" prefHeight="31.0" prefWidth="102.0" text="Hall Name">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <VBox layoutX="21.0" layoutY="101.0" prefHeight="150.0" prefWidth="908.0" style="-fx-background-color: #FBFAFAFF;">
+      <VBox layoutX="21.0" layoutY="116.0" prefHeight="207.0" prefWidth="908.0" style="-fx-background-color: #FBFAFAFF;">
          <children>
-            <TableView fx:id="TBLSetExam" onMouseClicked="#tableClickOnAtion" prefHeight="119.0" prefWidth="868.0">
+            <TableView fx:id="TBLSetExam" onMouseClicked="#tableClickOnAtion" prefHeight="190.0" prefWidth="878.0">
                <columns>
                   <TableColumn fx:id="COLEcamShedulID" prefWidth="93.48575133085251" text="Exam shedul ID" />
                   <TableColumn fx:id="COLExamID" prefWidth="69.0285873413086" text="Exam ID" />
@@ -65,7 +68,7 @@
                   <TableColumn fx:id="COLGrade" prefWidth="74.4000244140625" text="Grade" />
                   <TableColumn fx:id="COLDate" prefWidth="125.5999755859375" text="Date" />
                   <TableColumn fx:id="COLTime" prefWidth="101.60003662109375" text="Time" />
-                  <TableColumn fx:id="COLSubjectID" minWidth="0.0" prefWidth="144.00002441406252" text="Subject ID" />
+                  <TableColumn fx:id="COLSubjectID" minWidth="0.0" prefWidth="140.7999267578125" text="Subject ID" />
                </columns>
             </TableView>
          </children>
@@ -73,7 +76,7 @@
             <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </padding>
       </VBox>
-      <HBox alignment="CENTER_LEFT" layoutX="82.0" layoutY="652.0" prefHeight="48.0" prefWidth="811.0" spacing="30.0" styleClass="pop-rectangle" stylesheets="@../css/Styile.css">
+      <HBox alignment="CENTER_LEFT" layoutX="82.0" layoutY="662.0" prefHeight="48.0" prefWidth="811.0" spacing="30.0" styleClass="pop-rectangle" stylesheets="@../css/Styile.css">
          <children>
             <Button fx:id="BUTReset" mnemonicParsing="false" onAction="#resetOnAction" prefHeight="32.0" prefWidth="118.0" styleClass="button1" text="Reset" />
             <Button fx:id="BUTUpdate" layoutX="308.0" layoutY="10.0" mnemonicParsing="false" onAction="#upDateOnAction" prefHeight="32.0" prefWidth="118.0" styleClass="button1" text="Update" />
@@ -83,13 +86,65 @@
             <Insets left="160.0" />
          </padding>
       </HBox>
-      <Label layoutX="32.0" layoutY="22.0" prefHeight="31.0" prefWidth="111.0" text="Select the  Class">
+      <Label layoutX="32.0" layoutY="62.0" prefHeight="31.0" prefWidth="111.0" text="Select the  Class">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
+      <Line endX="749.199951171875" layoutX="168.0" layoutY="630.0" startX="-100.0" strokeWidth="3.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Line endX="-28.79998779296875" endY="242.60000610351562" layoutX="194.0" layoutY="382.0" startX="-28.79998779296875" startY="-7.600006103515625" strokeWidth="3.0" styleClass="Xline">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.006729475100942127">
+                     <color>
+                        <Color red="0.6105263233184814" green="0.5992202758789062" blue="0.5992202758789062" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Button layoutX="313.0" layoutY="-12.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="370.0" styleClass="button21" text="Exam Manage">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
    </children>
    <stylesheets>
       <URL value="@../css/Styile.css" />
       <URL value="@../css/TablesColer.css" />
+      <URL value="@../css/Ancherpain.css" />
    </stylesheets>
 </AnchorPane>

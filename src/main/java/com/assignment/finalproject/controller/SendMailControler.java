@@ -44,6 +44,7 @@ public class SendMailControler implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         try {
             loadParentID();
         } catch (SQLException e) {
@@ -78,7 +79,6 @@ public class SendMailControler implements Initializable {
         final String FROM_EMAIL = "imeshnipun@gmail.com";
         final String PASSWORD = "wthn pbdm rnws xeeb";
 
-        // Create a new Task for sending the email
         Task<Void> emailTask = new Task<>() {
             @Override
             protected Void call() {
@@ -100,6 +100,9 @@ public class SendMailControler implements Initializable {
         Thread emailThread = new Thread(emailTask);
         emailThread.setDaemon(true); // Ensure thread exits when application closes
         emailThread.start();
+
+        TXTSubject.clear();
+        TXAMAssage.clear();
     }
 
 

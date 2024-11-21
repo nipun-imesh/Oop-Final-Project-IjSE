@@ -220,7 +220,6 @@ public class AddExamListPageControler implements Initializable {
         // Reset fields after adding the exam
         resetAddset();
 
-        // Add the exam to the list and update IDs
         examCartTMS.add(examCartTM);
         getExamShedulID();
         getExamID();
@@ -286,6 +285,8 @@ public class AddExamListPageControler implements Initializable {
         } else {
             new Alert(Alert.AlertType.ERROR, "Fail to save...!").show();
         }
+
+        TBLplasMark.getItems().clear();
     }
 
     @FXML
