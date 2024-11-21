@@ -185,6 +185,54 @@ public class StudentManagePageControler implements Initializable {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+
+        String namePattern = "^[A-Za-z ]+$";
+        String agePattern = "^[0-9]{2}$"; // A simple check for a two-digit number (age between 11-17)
+        String gradePattern = "^[6-9]$|^10$|^11$"; // Ensures grade is between 6 and 11 (valid grades)
+        String datePattern = "^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$";
+
+        String studentNam = TXTName.getText();
+        if (studentNam.isEmpty() || !studentNam.matches(namePattern)) {
+            new Alert(Alert.AlertType.ERROR, "Please enter a valid name (only letters and spaces)").show();
+            return;
+        }
+
+        if ( TXTAge.getText().isEmpty() || !TXTAge.getText().matches(datePattern)) {
+            System.out.println("Valid date format!");
+        } else {
+            System.out.println("Invalid date format!");
+        }
+
+        String ageText = TXTAge.getText();
+        if (ageText.isEmpty() || !ageText.matches(agePattern)) {
+            new Alert(Alert.AlertType.ERROR, "Age must be between 11 and 17").show();
+            return;
+        }
+        int ages = Integer.parseInt(ageText);
+        if (ages < 11 || ages > 17) {
+            new Alert(Alert.AlertType.ERROR, "Age must be between 11 and 17").show();
+            return;
+        }
+
+        String DateOB = DATEDateofBarth.getValue() != null ? DATEDateofBarth.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")) : "";
+        if (DateOB.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please select a valid date of birth").show();
+            return;
+        }
+        return !isFutureDate(DateOB);
+
+        String grades = TXTGrade.getText();
+        if (grades.isEmpty() || !grades.matches(gradePattern)) {
+            new Alert(Alert.AlertType.ERROR, "Grade must be between 6 and 11").show();
+            return;
+        }
+
+        String Studentclass = COMClass.getValue();
+        if (Studentclass == null || Studentclass.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please select a class").show();
+            return;
+        }
+
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure?", ButtonType.YES, ButtonType.NO);
         Optional<ButtonType> optionalButtonType = alert.showAndWait();
 

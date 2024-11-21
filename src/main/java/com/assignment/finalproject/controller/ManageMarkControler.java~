@@ -136,8 +136,10 @@ public class ManageMarkControler implements Initializable {
 
     @FXML
     void selectMarkonAction(MouseEvent event) {
-        BUTUpdate.setDisable(false);
-        BUTDelete.setDisable(false);
+        if(TBLSelectMark.getSelectionModel().getSelectedItem() != null){
+            BUTUpdate.setDisable(false);
+            BUTDelete.setDisable(false);
+        }
 
         ManageExamMarkTM manageExamMarkTM = TBLSelectMark.getSelectionModel().getSelectedItem();
         if (manageExamMarkTM != null) {
@@ -154,10 +156,16 @@ public class ManageMarkControler implements Initializable {
 
     @FXML
     void updateMarkOnAction(ActionEvent event) {
-        double mark = Double.parseDouble(TXTNewMark.getText());
+        String getMark = (TXTNewMark.getText());
+
+        if( getMark == null){
+            return;
+        }
+        double mark = Double.parseDouble(getMark);
         String studentId = LBStudentId.getText();
         String subjectId = LBSubjectID.getText();
         String examId = LBExamID.getText();
+
 
         try {
             boolean isUpdated = manageMarkModel.updateMark(mark, studentId, subjectId, examId);

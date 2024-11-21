@@ -163,7 +163,7 @@ public class AddExamListPageControler implements Initializable {
         String examID = LBExamID.getText();
         String examName = TXTExamName.getText();
         String grade = COBGrade.getValue() != null ? String.valueOf(COBGrade.getValue()) : "";
-        String date = DTPDate.getValue() != null ? DTPDate.getValue().toString() : ""; 
+        String date = DTPDate.getValue() != null ? DTPDate.getValue().toString() : "";
         String time = TXTTime.getText();
         String hallName = COBSelectHall.getValue() != null ? String.valueOf(COBSelectHall.getValue()) : "";
         String subjectID = COMSubjectID.getValue() != null ? String.valueOf(COMSubjectID.getValue()) : "";
@@ -220,7 +220,6 @@ public class AddExamListPageControler implements Initializable {
         // Reset fields after adding the exam
         resetAddset();
 
-        // Add the exam to the list and update IDs
         examCartTMS.add(examCartTM);
         getExamShedulID();
         getExamID();
