@@ -21,32 +21,24 @@
 }
 
 .Backgrount1 {
-    -fx-background-color: rgb(5, 5, 5); /* Fallback color */
-    -fx-background-color: linear-gradient(to bottom right, rgb(0, 0, 0) 0%, rgb(5, 5, 5) 100%);
-    -fx-background-radius: 10px;
-    -fx-padding: 15px;
-}
-/* Background color for the sidebar */
+
+        -fx-background-color:
+                linear-gradient(
+                        to top right, /* 112deg converted to JavaFX equivalent */
+                        rgba(225, 233, 223, 1) 0%,
+                        rgba(94, 91, 91, 1) 32%,
+                        rgba(0, 0, 0, 1) 98%
+                );
+    }
+
+
 .sidebar {
     -fx-background-color: #7f37b1; /* Purple background color */
     -fx-pref-width: 200px;
 }
 
-/* Main Menu text styling */
-/*.main-menu {*/
-/*    -fx-text-fill: white;*/
-/*    -fx-background-color: #e6dede;*/
-/*    -fx-font-size: 14px;*/
-/*    -fx-font-weight: bold;*/
-/*    -fx-padding: 10px;*/
-/*    -fx-border-radius: 3px;*/
-/*    -fx-border-color: white;*/
-
-/*}*/
-
-/* Style for buttons or menu items */
 .menu-item {
-    -fx-background-color: #050505;
+
     -fx-font-weight: bold;
     -fx-text-fill: white;
     -fx-font-size: 13px;
@@ -78,7 +70,6 @@
     -fx-background-color: #cdb5e0;
 }
 
-
 .user-info {
     -fx-text-fill: white;
     -fx-font-size: 12px;
@@ -86,20 +77,17 @@
     -fx-alignment: center;
 }
 
-/* CSS for a label with standalone pop effect */
-/* Specific CSS for the pop effect on the label */
-/* CSS for a rectangle with drop shadow and pop effect */
 .pop-rectangle {
-    -fx-fill: #fbfafa; /* Rectangle color */
-    -fx-arc-width: 15; /* Rounded corners */
+    -fx-fill: #fbfafa;
+    -fx-arc-width: 15;
     -fx-arc-height: 15;
     -fx-background-radius: 10px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 15, 0.5, 0, 5);
-    -fx-scale-x: 1.05; /* Slight pop effect horizontally */
-    -fx-scale-y: 1.05; /* Slight pop effect vertically */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
 }
 
-.textFealComBox{
+.textFealComBox {
     -fx-background-color: #fff;
     -fx-border-color: black;
     -fx-border-width: 0 0 1px 0;

@@ -58,14 +58,6 @@
                         <Cursor fx:constant="CLOSED_HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="BUTSearch" layoutX="290.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#searchOnAction" prefWidth="80.0" styleClass="button1" stylesheets="@../css/Styile.css" text="Search" textFill="WHITE" HBox.hgrow="ALWAYS">
-                     <font>
-                        <Font name="Calibri Bold" size="14.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="CLOSED_HAND" />
-                     </cursor>
-                  </Button>
                   <Button fx:id="BUTPerentSelect" layoutX="10.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#parentSelectOnAction" prefWidth="80.0" styleClass="button1" stylesheets="@../css/Styile.css" text="Parent Select" textFill="WHITE" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="Calibri Bold" size="14.0" />

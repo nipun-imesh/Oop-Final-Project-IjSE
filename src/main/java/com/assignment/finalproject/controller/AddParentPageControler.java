@@ -29,6 +29,9 @@ public class AddParentPageControler implements Initializable {
     private Label LBParentId;
 
     @FXML
+    private Button BUTUpdate;
+
+    @FXML
     private TableColumn<AddParentTM, String> TBCParentId;
 
     @FXML
@@ -66,10 +69,16 @@ public class AddParentPageControler implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        BUTUpdate.setDisable(true);
+        btnDelete.setDisable(true);
     }
 
     @FXML
     void BUTResetOnAction(ActionEvent event) {
+
+        BUTUpdate.setDisable(true);
+        btnDelete.setDisable(true);
+
         TXTParentName.setText("");
         TXTParentMail.setText("");
         try {
@@ -81,6 +90,20 @@ public class AddParentPageControler implements Initializable {
 
     @FXML
     void BUTSaveObAction(ActionEvent event) {
+
+        String namePattern = "^[A-Za-z ]+$";
+        String emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+
+        if( TXTParentName.getText().isEmpty() || !TXTParentName.getText().matches(namePattern)) {
+            new Alert(Alert.AlertType.ERROR, "Please enter a valid name (only letters and spaces)").show();
+            return;
+        }
+        if( TXTParentMail.getText().isEmpty() || !TXTParentMail.getText().matches(emailPattern)) {
+            new Alert(Alert.AlertType.ERROR, "Please enter a valid email address").show();
+            return;
+
+        }
+
         if(LBParentId.getText().isEmpty() || TXTParentName.getText().isEmpty() || TXTParentMail.getText().isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Please enter all fields").show();
         }
@@ -100,6 +123,7 @@ public class AddParentPageControler implements Initializable {
                     new Alert(Alert.AlertType.INFORMATION, "Parent saved...!").show();
                     loadAllParent();
                     loadNextParentID();
+                    reset();
                 }
             } catch (SQLException e) {
                new Alert(Alert.AlertType.ERROR, "Parent not saved...!").show();
@@ -110,6 +134,20 @@ public class AddParentPageControler implements Initializable {
 
     @FXML
     void BUTUpdateOnAction(ActionEvent event) {
+
+        String namePattern = "^[A-Za-z ]+$";
+        String emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+
+        if( TXTParentName.getText().isEmpty() || !TXTParentName.getText().matches(namePattern)) {
+            new Alert(Alert.AlertType.ERROR, "Please enter a valid name (only letters and spaces)").show();
+            return;
+        }
+        if( TXTParentMail.getText().isEmpty() || !TXTParentMail.getText().matches(emailPattern)) {
+            new Alert(Alert.AlertType.ERROR, "Please enter a valid email address").show();
+            return;
+
+        }
+
         String parentID = LBParentId.getText();
         String parentName = TXTParentName.getText();
         String parentMail = TXTParentMail.getText();
@@ -149,7 +187,10 @@ public class AddParentPageControler implements Initializable {
 
     @FXML
     void TBTableClickOnAction(MouseEvent event) {
-        BUtSave.setDisable(false);
+        BUTUpdate.setDisable(false);
+        btnDelete.setDisable(false);
+        BUtSave.setDisable(true);
+
         AddParentTM addParentTM = TBParentTabke.getSelectionModel().getSelectedItem();
         if (addParentTM != null) {
             LBParentId.setText(addParentTM.getParentId());
@@ -181,5 +222,8 @@ public class AddParentPageControler implements Initializable {
         TBParentTabke.setItems(addParentTMS);
     }
 
-
+    public void reset(){
+        TXTParentName.setText("");
+        TXTParentMail.setText("");
+    }
 }

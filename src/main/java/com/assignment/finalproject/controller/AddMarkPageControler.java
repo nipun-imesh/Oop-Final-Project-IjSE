@@ -117,6 +117,7 @@ public class AddMarkPageControler implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        BUTAddMark.setDisable(true);
     }
 
     @FXML
@@ -145,11 +146,17 @@ public class AddMarkPageControler implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
+        TBLMarkTable.getItems().clear();
     }
 
     @FXML
     void searchOnAction(ActionEvent event) throws SQLException {
+        if(COMSetClass.getValue().isEmpty() || COMGrade.getValue().isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"fust Select Class And Grade");
+        }else{
+            BUTAddMark.setDisable(false);
+        }
+
         String classId = (String) COMSetClass.getValue();
         String grade = String.valueOf(COMGrade.getValue());
 
@@ -235,27 +242,52 @@ public class AddMarkPageControler implements Initializable {
     }
 
     @FXML
-    void setMArkOnTableAction(ActionEvent event) {
+    void setMArkOnTableAction(ActionEvent event) throws SQLException {
+        String studentID = LBStudentId.getText();
+        String studentName = LBStudentName.getText();
+        String S_class = (String) COMSetClass.getValue();
+        String examID = LBExamId.getText();
+        String subject = COMSubjectID.getValue();
+        String markIDs = LBMarkId.getText();
+        String mark = TXTMark.getText();
+        String subjectID = COMSubjectID.getValue();
 
-    String subjectID = COMSubjectID.getValue();
-        for(int i = 0; i < addMarkCartTMS.size(); i++) {
-            String markID = addMarkCartTMS.get(i).getSubject();
-            System.out.println(markID);
-            if (markID.equals(subjectID)) {
-                new Alert(Alert.AlertType.ERROR, "Subject already exist").show();
-                return;
-            }
+        String marksPattern = "^([1-9][0-9]?|100|0)$";
+
+        if (studentID.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Select Student ID").show();
+            return;
         }
+        if (examID.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Select Exam Name").show();
+            return;
+        }
+        if (subject == null || subject.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Select Subject ID").show();
+            return;
+        }
+        if (mark.isEmpty() || !mark.matches(marksPattern)) {
+            new Alert(Alert.AlertType.ERROR, "Invalid Mark. Enter a value between 0 and 100.").show();
+            TXTMark.setStyle("-fx-border-color: #ff4800;");
+            return;
+        } else {
+            TXTMark.setStyle("");
+        }
+
+        boolean subjectExist = addMarkModel.checkStudentExamSubject(studentID, examID, subjectID);
+        if (subjectExist) {
+            new Alert(Alert.AlertType.ERROR, "Subject already exists for this student").show();
+            return;
+        }
+
         try {
-            String studentID = LBStudentId.getText();
-            String studentName = LBStudentName.getText();
-            String S_class = (String) COMSetClass.getValue();
-            String examID = LBExamId.getText();
-            String subject = COMSubjectID.getValue();
-            String markID = LBMarkId.getText();
-            double mark = Double.parseDouble(TXTMark.getText());
+            double markValue = Double.parseDouble(mark);
 
             Button btn = new Button("Remove");
+            btn.setOnAction(actionEvent -> {
+                addMarkCartTMS.removeIf(tm -> tm.getSubject().equals(subjectID));
+                TBLMarkTable.refresh();
+            });
 
             AddMarkCartTM addMarkCartTM = new AddMarkCartTM(
                     studentID,
@@ -263,22 +295,19 @@ public class AddMarkPageControler implements Initializable {
                     S_class,
                     examID,
                     subject,
-                    markID,
-                    mark,
+                    markIDs,
+                    markValue,
                     btn
             );
-            btn.setOnAction(actionEvent -> {
 
-
-                TBLMarkTable.refresh();
-            });
             addMarkCartTMS.add(addMarkCartTM);
-            getStudentNameIdTMS.add(addMarkCartTM);
             setMArkValues();
             TBLMarkTable.setItems(addMarkCartTMS);
+
         } catch (NumberFormatException e) {
-            new Alert(Alert.AlertType.ERROR, "Please enter a valid mark").show();
+            new Alert(Alert.AlertType.ERROR, "Please enter a valid numeric mark").show();
         }
+        TXTMark.setStyle("-fx-border-color: #000000;");
     }
 
     @FXML

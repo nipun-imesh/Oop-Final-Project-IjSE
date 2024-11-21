@@ -88,6 +88,10 @@ public class ManageMarkControler implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        BUTDelete.setDisable(true);
+        BUTUpdate.setDisable(true);
+
         loadClass((ComboBox<String>) COMSelectClass);
         COMSelectGarde.setDisable(true);
         try {
@@ -122,11 +126,21 @@ public class ManageMarkControler implements Initializable {
                 throw new RuntimeException(e);
             }
         }
+        setStudent();
+        LBExamID.setText("");
+        LBOldMark.setText("");
+        LBSubjectID.setText("");
+
         TBLSelectMark.refresh();
     }
 
     @FXML
     void selectMarkonAction(MouseEvent event) {
+        if(TBLSelectMark.getSelectionModel().getSelectedItem() != null){
+            BUTUpdate.setDisable(false);
+            BUTDelete.setDisable(false);
+        }
+
         ManageExamMarkTM manageExamMarkTM = TBLSelectMark.getSelectionModel().getSelectedItem();
         if (manageExamMarkTM != null) {
             LBOldMark.setText(manageExamMarkTM.getMark());
@@ -137,22 +151,7 @@ public class ManageMarkControler implements Initializable {
 
     @FXML
     void selectStudentOnAction(MouseEvent event) {
-        GetStudentNameIdTM getStudentNameIdTM = TBLSelectStudent.getSelectionModel().getSelectedItem();
-
-        if (getStudentNameIdTM != null) {
-            LBStudentId.setText(getStudentNameIdTM.getStudentId());
-            LBStudentName.setText(getStudentNameIdTM.getStudentName());
-        }
-        String studentId = LBStudentId.getText();
-
-        ArrayList<ManageExamMarkTM> manageExamMarkTMS = null;
-        try {
-            manageExamMarkTMS = manageMarkModel.getStudentMarkDetail(studentId);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        TBLSelectMark.setItems(FXCollections.observableArrayList(manageExamMarkTMS));
+        setStudent();
     }
 
     @FXML
@@ -172,6 +171,11 @@ public class ManageMarkControler implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        TXTNewMark.clear();
+        LBExamID.setText("");
+        LBOldMark.setText("");
+        LBSubjectID.setText("");
+        setStudent();
         TBLSelectMark.refresh();
     }
 
@@ -179,6 +183,17 @@ public class ManageMarkControler implements Initializable {
     void isSelectClassOnAction(ActionEvent event) {
 
         COMSelectGarde.setDisable(false);
+        String classId = (String) COMSelectClass.getValue();
+        String grade = (String) COMSelectGarde.getValue();
+        ArrayList<GetStudentNameIdTM> getStudentNameIdDTOS = null;
+        try {
+            getStudentNameIdDTOS = manageMarkModel.getStudentDetail(classId, grade);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        TBLSelectStudent.setItems(FXCollections.observableArrayList(getStudentNameIdDTOS));
+        setMArkValues();
     }
 
     @FXML
@@ -213,5 +228,24 @@ public class ManageMarkControler implements Initializable {
             observableList.add(classDTO.getClassId());
         }
         COMSelectGarde.setItems(observableList);
+    }
+
+    private void setStudent() {
+        GetStudentNameIdTM getStudentNameIdTM = TBLSelectStudent.getSelectionModel().getSelectedItem();
+
+        if (getStudentNameIdTM != null) {
+            LBStudentId.setText(getStudentNameIdTM.getStudentId());
+            LBStudentName.setText(getStudentNameIdTM.getStudentName());
+        }
+        String studentId = LBStudentId.getText();
+
+        ArrayList<ManageExamMarkTM> manageExamMarkTMS = null;
+        try {
+            manageExamMarkTMS = manageMarkModel.getStudentMarkDetail(studentId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        TBLSelectMark.setItems(FXCollections.observableArrayList(manageExamMarkTMS));
     }
 }

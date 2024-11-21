@@ -45,14 +45,14 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <TextField fx:id="TXTExamName" alignment="BOTTOM_LEFT" layoutX="200.0" layoutY="142.0" prefHeight="31.0" prefWidth="287.0" styleClass="textFealComBox" />
+      <TextField fx:id="TXTExamName" alignment="BOTTOM_LEFT" layoutX="200.0" layoutY="142.0" prefHeight="31.0" prefWidth="287.0" promptText="Exam Name" styleClass="textFealComBox" />
                   <Line endX="132.1999969482422" endY="1.2000045776367188" layoutX="69.0" layoutY="51.0" startX="379.0" />
                 <DatePicker fx:id="DTPDate" layoutX="579.0" layoutY="24.0" prefHeight="31.0" prefWidth="206.0" promptText="Data" styleClass="textFealComBox" />
                 <Label alignment="BOTTOM_LEFT" layoutX="581.0" layoutY="75.0" prefHeight="31.0" prefWidth="82.0" text="Time">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-                <TextField fx:id="TXTTime" layoutX="673.0" layoutY="74.0" prefHeight="31.0" prefWidth="111.0" promptText="00.00h" />
+                <TextField fx:id="TXTTime" layoutX="673.0" layoutY="74.0" prefHeight="31.0" prefWidth="111.0" promptText="00.00.00" />
       <Line endX="132.1999969482422" endY="1.2000045776367188" layoutX="71.0" layoutY="106.0" startX="379.0" />
       <ComboBox fx:id="COBGrade" layoutX="199.0" layoutY="210.0" onAction="#selectGradeOnAction" prefHeight="31.0" prefWidth="150.0" styleClass="textFealComBox" />
       <Label alignment="BOTTOM_LEFT" layoutX="58.0" layoutY="210.0" prefHeight="31.0" prefWidth="102.0" text="Grade">
@@ -91,7 +91,7 @@
          </font></Label>
       <Label alignment="BOTTOM_LEFT" layoutX="436.0" layoutY="277.0" prefHeight="31.0" prefWidth="102.0" text="Subject Name">
          <font>
-            <Font name="System Bold Italic" size="12.0" />
+            <Font name="System Bold" size="12.0" />
          </font></Label>
       <Label fx:id="LBSbjectName" alignment="BOTTOM_LEFT" layoutX="579.0" layoutY="277.0" prefHeight="31.0" prefWidth="248.0" />
       <Line endX="132.1999969482422" endY="1.2000045776367188" layoutX="447.0" layoutY="307.0" startX="379.0" />

@@ -107,7 +107,6 @@ public class StudentResaltViewPageCointroler implements Initializable {
 
     }
 
-
     @FXML
     void selectClassOnAction(ActionEvent event) {
 

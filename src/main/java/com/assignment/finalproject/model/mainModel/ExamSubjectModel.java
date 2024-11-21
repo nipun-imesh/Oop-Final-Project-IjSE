@@ -15,15 +15,15 @@ public class ExamSubjectModel {
         );
     }
 
-    public boolean updateExamSubjectId(String examID, String subjectID) throws SQLException {
-        return CrudUtil.execute("UPDATE sub_exam_detail SET sub_id = ? WHERE exa_id = ?",
-                subjectID,
-                examID);
+    public boolean updateExamSubjectId(String subjectID, String examID) throws SQLException {
+        return CrudUtil.execute(
+                "UPDATE sub_exam_detail SET sub_id = ? WHERE exa_id = ?",
+                subjectID, examID
+        );
     }
 
     public boolean deleteSubject(String examID) throws SQLException {
-        return CrudUtil.execute("DELETE FROM sub_exam_detail WHERE exa_id = ?",
-                examID);
+        return CrudUtil.execute("DELETE FROM sub_exam_detail WHERE exa_id = ?", examID);
     }
 }
 

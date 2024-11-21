@@ -11,13 +11,13 @@
    <children>
       <Pane layoutY="-1.0" prefHeight="720.0" prefWidth="275.0" styleClass="Backgrount1" stylesheets="@../css/Styile.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox layoutX="19.0" layoutY="55.0" prefHeight="546.0" prefWidth="238.0" spacing="5.0">
+            <VBox layoutX="19.0" layoutY="114.0" prefHeight="523.0" prefWidth="238.0" spacing="5.0">
                <children>
                   <Button fx:id="BUTStudentManage" mnemonicParsing="false" onAction="#StudentManageAction" prefHeight="74.0" prefWidth="238.0" styleClass="menu-item" text="Student Manage">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin></Button>
-                  <Button fx:id="BUTExamManage" layoutX="10.0" layoutY="80.0" mnemonicParsing="false" onAction="#AddExamAction" prefHeight="69.0" prefWidth="238.0" styleClass="menu-item" text="Add Exam">
+                  <Button fx:id="BUTExamManage" layoutX="10.0" layoutY="80.0" mnemonicParsing="false" onAction="#AddExamAction" prefHeight="69.0" prefWidth="238.0" styleClass="menu-item" text="Add Exam" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin></Button>

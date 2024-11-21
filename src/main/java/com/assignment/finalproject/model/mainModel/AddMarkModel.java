@@ -63,9 +63,14 @@ public class AddMarkModel {
                     playsStudentAllMarkDTO.getSubjectId(),
                     playsStudentAllMarkDTO.getStudentId(),
                     playsStudentAllMarkDTO.getExamId());
-
-
         }
         return true;
     }
+
+    public boolean checkStudentExamSubject(String studentID, String examID, String subjectID) throws SQLException {
+        ResultSet rst = CrudUtil.execute("SELECT * FROM marks WHERE stu_id = ? AND ex_id = ? AND sub_id = ?", studentID, examID, subjectID);
+
+        return rst.next();
+    }
+
 }

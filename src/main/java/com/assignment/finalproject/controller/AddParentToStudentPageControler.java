@@ -74,20 +74,22 @@ public class AddParentToStudentPageControler implements Initializable {
         COLParentId.setCellValueFactory(new PropertyValueFactory<>("parentId"));
         COLParentName.setCellValueFactory(new PropertyValueFactory<>("parentName"));
         COLParentMail.setCellValueFactory(new PropertyValueFactory<>("parentEmail"));
-        try {
-            loadNextParentID();
-            loadAllParent();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        loadNextParentID();
+        loadAllParent();
+        BUTPerentSelect.setDisable(true);
     }
 
     public void setPatentController(StudentManagePageControler studentMC){
         this.studentMC = studentMC;
     }
 
-    private void loadAllParent() throws SQLException {
-        ArrayList<AddParentDTO> addParentDTOS = AddParentCModel.getAllParent();
+    private void loadAllParent() {
+        ArrayList<AddParentDTO> addParentDTOS = null;
+        try {
+            addParentDTOS = AddParentCModel.getAllParent();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         ObservableList<AddParentTM> addParentTMS = FXCollections.observableArrayList();
         for (AddParentDTO addParentDTO : addParentDTOS) {
@@ -103,7 +105,7 @@ public class AddParentToStudentPageControler implements Initializable {
     }
 
     @FXML
-    void parentSelectOnAction(ActionEvent event) throws SQLException, IOException {
+    void parentSelectOnAction(ActionEvent event) {
         studentMC.setTXTStuParentId().setText(LBPerentID.getText());
         studentMC.setTXTStuParentName().setText(TXTParentName.getText());
 
@@ -115,15 +117,26 @@ public class AddParentToStudentPageControler implements Initializable {
     void resetOnAction(ActionEvent event) {
         TXTParentName.setText("");
         TXTParentMail.setText("");
-        try {
-            loadNextParentID();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        BUTPerentSelect.setDisable(true);
+        BUTSave.setDisable(true);
+        loadNextParentID();
     }
 
     @FXML
     void saveOnAction(ActionEvent event)  {
+
+        String namePattern = "^[A-Za-z ]+$";
+        String emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+
+        if( TXTParentName.getText().isEmpty() || !TXTParentName.getText().matches(namePattern)) {
+            new Alert(Alert.AlertType.ERROR, "Please enter a valid name (only letters and spaces)").show();
+            return;
+        }
+        if( TXTParentMail.getText().isEmpty() || !TXTParentMail.getText().matches(emailPattern)) {
+            new Alert(Alert.AlertType.ERROR, "Please enter a valid email address").show();
+            return;
+
+        }
 
         if(LBPerentID.getText().isEmpty() || TXTParentName.getText().isEmpty() || TXTParentMail.getText().isEmpty()) {
             new Alert(Alert.AlertType.ERROR, "Please enter all fields").show();
@@ -150,30 +163,34 @@ public class AddParentToStudentPageControler implements Initializable {
             throw new RuntimeException(e);
         }
         }
-    }
-
-    @FXML
-    void searchOnAction(ActionEvent event) {
-
+        reset();
     }
 
     @FXML
     void tabSelectOnaction(MouseEvent event) {
-        BUTSave.setDisable(false);
+        BUTPerentSelect.setDisable(false);
+        BUTSave.setDisable(true);
+
         AddParentTM addParentTM = TABParent.getSelectionModel().getSelectedItem();
         if (addParentTM != null) {
             LBPerentID.setText(addParentTM.getParentId());
             TXTParentName.setText(addParentTM.getParentName());
             TXTParentMail.setText(addParentTM.getParentEmail());
-
         }
     }
 
-    public void loadNextParentID() throws SQLException {
-        String nextParantID = addParentCModel.getParentID();
+    public void loadNextParentID() {
+        String nextParantID = null;
+        try {
+            nextParantID = addParentCModel.getParentID();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         LBPerentID.setText(nextParantID);
     }
 
-
-
+    public void reset(){
+        TXTParentName.setText("");
+        TXTParentMail.setText("");
+    }
 }

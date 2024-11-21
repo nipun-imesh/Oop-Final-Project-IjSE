@@ -1,5 +1,6 @@
 package com.assignment.finalproject.controller;
 
+import com.assignment.finalproject.dto.main.AddExamListDTO;
 import com.assignment.finalproject.dto.sub.*;
 import com.assignment.finalproject.dto.tm.ExamCartTM;
 import com.assignment.finalproject.dto.tm.ManageExamTM;
@@ -77,7 +78,7 @@ public class ManageExamControler implements Initializable {
     private TableColumn<ManageExamTM, Time> COLTime;
 
     @FXML
-    private ComboBox<?> COMSelectClass;
+    private ComboBox<String> COMSelectClass;
 
     @FXML
     private ComboBox<String> COMSubject;
@@ -118,6 +119,9 @@ public class ManageExamControler implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        BUTDelete.setDisable(true);
+        BUTUpdate.setDisable(true);
+
         try {
             loadExamHall();
             loadGrade( (ComboBox<String>) COMSelectClass);
@@ -137,30 +141,19 @@ public class ManageExamControler implements Initializable {
         String examShedulID = LBExamShedulID.getText();
 
         try {
-            boolean isDeletedExam = manageExamModel.deleteExam(examID);
-            if (!isDeletedExam) {
+            boolean isDeleted = manageExamModel.deleteExam(examID, examShedulID);
+            if (!isDeleted) {
                 new Alert(Alert.AlertType.ERROR, "Failed to delete exam.").show();
                 return;
             }
 
-            boolean isDeletedSchedule = examShedulModel.deleteExamSchedule(examShedulID);
-            if (!isDeletedSchedule) {
-                new Alert(Alert.AlertType.ERROR, "Failed to delete schedule.").show();
-                return;
-            }
-
-            boolean isDeletedSubject = examSubjectModel.deleteSubject(examID);
-            if (!isDeletedSubject) {
-                new Alert(Alert.AlertType.ERROR, "Failed to delete subject.").show();
-                return;
-            }
-
             new Alert(Alert.AlertType.INFORMATION, "Deleted successfully!").show();
-
-        } catch (Exception e) {
+        } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "An error occurred while deleting. Please try again.").show();
         }
+        TBLSetExam.refresh();
+        setCellValues();
     }
 
     @FXML
@@ -174,37 +167,28 @@ public class ManageExamControler implements Initializable {
         String examDate = DTPDate.getValue().toString();
         String subjectID = String.valueOf(COMSubject.getValue());
 
+        if(examName.isEmpty() || grade.isEmpty() || hallName.isEmpty() || examTime.isEmpty() || examDate.isEmpty() || subjectID.isEmpty()){
+            new Alert(Alert.AlertType.ERROR,"Please Enter All Fields").show();
+            return;
+        }
+
         try {
-            boolean isUpdatedExam = manageExamModel.updateExamAndSchedule(examID, examName, grade, hallName, examTime, examDate, subjectID);
+            boolean isUpdated = manageExamModel.updateExamAndSchedule(
+                    examID, examName, grade, hallName, examTime, examDate, examShedulID, subjectID
+            );
 
-            if (!isUpdatedExam) {
-                new Alert(Alert.AlertType.ERROR, "Failed to update Exam.").show();
-                return;
-            }
-
-            boolean isUpdatedSchedule = examShedulModel.updateExamSchedule(
-                    examShedulID, examID, hallName, examTime, examDate);
-
-            if (!isUpdatedSchedule) {
-                new Alert(Alert.AlertType.ERROR, "Failed to update Exam Schedule.").show();
-                return;
-            }
-
-            boolean isUpdatedSubject = examSubjectModel.updateExamSubjectId(examID, subjectID);
-
-            if (!isUpdatedSubject) {
-                new Alert(Alert.AlertType.ERROR, "Failed to update Exam Subject.").show();
+            if (!isUpdated) {
+                new Alert(Alert.AlertType.ERROR, "Failed to update Exam details.").show();
                 return;
             }
 
             new Alert(Alert.AlertType.INFORMATION, "Update successful!").show();
-
         } catch (SQLException e) {
             e.printStackTrace();
             new Alert(Alert.AlertType.ERROR, "An error occurred while updating. Please try again.").show();
         }
+        TBLSetExam.refresh();
     }
-
 
 
     @FXML
@@ -247,8 +231,13 @@ public class ManageExamControler implements Initializable {
 
     @FXML
     void tableClickOnAtion(MouseEvent event) {
-
         ManageExamTM manageExamTM = TBLSetExam.getSelectionModel().getSelectedItem();
+
+        if(manageExamTM != null){
+            BUTUpdate.setDisable(false);
+            BUTDelete.setDisable(false);
+        }
+
         if (manageExamTM == null) {
             new Alert(Alert.AlertType.ERROR, "Please select a row").show();
             return;

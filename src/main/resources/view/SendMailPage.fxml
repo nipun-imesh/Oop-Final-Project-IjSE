@@ -70,7 +70,7 @@
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="LBPArentName" layoutX="339.0" layoutY="31.0" prefHeight="26.0" prefWidth="235.0" text="PArent Name" />
+      <Label fx:id="LBPArentName" layoutX="339.0" layoutY="31.0" prefHeight="26.0" prefWidth="235.0" />
       <Line endX="133.2000732421875" endY="0.40000152587890625" layoutX="441.0" layoutY="57.0" startX="-100.0" />
    </children>
 </AnchorPane>

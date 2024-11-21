@@ -2,8 +2,10 @@ package com.assignment.finalproject.controller;
 
 import com.assignment.finalproject.dto.sub.GetParentIdDTO;
 import com.assignment.finalproject.model.mainModel.SendMailModel;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -64,7 +66,7 @@ public class SendMailControler implements Initializable {
 
     @FXML
     void sendMailOnAction(ActionEvent event) {
-        String recipientEmail =LBMailset.getText();
+        String recipientEmail = LBMailset.getText();
         String subject = TXTSubject.getText();
         String body = TXAMAssage.getText();
 
@@ -76,12 +78,30 @@ public class SendMailControler implements Initializable {
         final String FROM_EMAIL = "imeshnipun@gmail.com";
         final String PASSWORD = "wthn pbdm rnws xeeb";
 
-        try {
-            sendEmailWithGmail(FROM_EMAIL, PASSWORD, recipientEmail,subject,body);
-        } catch (MessagingException e) {
-            throw new RuntimeException(e);
-        }
+        // Create a new Task for sending the email
+        Task<Void> emailTask = new Task<>() {
+            @Override
+            protected Void call() {
+                try {
+                    sendEmailWithGmail(FROM_EMAIL, PASSWORD, recipientEmail, subject, body);
+                    Platform.runLater(() -> {
+                        new Alert(Alert.AlertType.INFORMATION, "Email sent successfully..!").showAndWait();
+                    });
+                } catch (MessagingException e) {
+                    Platform.runLater(() -> {
+                        new Alert(Alert.AlertType.ERROR, "Failed to send email: " + e.getMessage()).showAndWait();
+                    });
+                }
+                return null;
+            }
+        };
+
+        // Run the task in a new thread
+        Thread emailThread = new Thread(emailTask);
+        emailThread.setDaemon(true); // Ensure thread exits when application closes
+        emailThread.start();
     }
+
 
     private void loadParentID() throws SQLException {
         ObservableList<String> observableList = FXCollections.observableArrayList();

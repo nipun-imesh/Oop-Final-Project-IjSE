@@ -48,7 +48,7 @@
                         <Cursor fx:constant="CLOSED_HAND" />
                      </cursor>
                   </Button>
-                  <Button layoutX="290.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#BUTUpdateOnAction" prefWidth="80.0" styleClass="button1" stylesheets="@../css/Styile.css" text="update" textFill="WHITE" HBox.hgrow="ALWAYS">
+                  <Button fx:id="BUTUpdate" layoutX="290.0" layoutY="10.0" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#BUTUpdateOnAction" prefWidth="80.0" styleClass="button1" stylesheets="@../css/Styile.css" text="update" textFill="WHITE" HBox.hgrow="ALWAYS">
                      <font>
                         <Font name="Calibri Bold" size="14.0" />
                      </font>

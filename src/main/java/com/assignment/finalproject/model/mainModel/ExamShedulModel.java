@@ -9,10 +9,14 @@ import java.util.ArrayList;
 
 public class ExamShedulModel {
 
-    public boolean updateExamSchedule(String examShedulID, String examID, String hallName, String examTime, String examDate) throws SQLException {
+    public boolean updateExamSchedule(
+            String examID, String hallID, String examTime, String examDate, String examScheduleID
+    ) throws SQLException {
+        System.out.println(examScheduleID + " " + hallID + " " + examTime + " " + examDate + " " + examID + " nipun");
+
         return CrudUtil.execute(
                 "UPDATE exam_schedule SET exam_id = ?, hall_id = ?, time = ?, date = ? WHERE exam_schedule_id = ?",
-                examID,hallName, examTime, examDate, examShedulID
+                examID, hallID, examTime, examDate, examScheduleID
         );
     }
 
@@ -28,7 +32,8 @@ public class ExamShedulModel {
     }
 
     public boolean deleteExamSchedule(String examShedulID) throws SQLException {
-        return CrudUtil.execute("DELETE FROM exam_schedule WHERE exam_schedule_id = ?",
-                examShedulID);
+        System.out.println(examShedulID + " nipun");
+        return CrudUtil.execute("DELETE FROM exam_schedule WHERE exam_schedule_id = ?", examShedulID);
     }
+
 }

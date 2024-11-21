@@ -2,9 +2,6 @@ package com.assignment.finalproject.model.mainModel;
 
 import com.assignment.finalproject.Cradutil.CrudUtil;
 import com.assignment.finalproject.db.DBConnection;
-import com.assignment.finalproject.dto.sub.ExamDTO;
-import com.assignment.finalproject.dto.sub.ExamScheduleDTO;
-import com.assignment.finalproject.dto.sub.ExamSubjectIdDTO;
 import com.assignment.finalproject.dto.tm.ManageExamTM;
 
 import java.sql.Connection;
@@ -52,74 +49,86 @@ public class ManageExamModel {
         return manageExamTMS;
     }
 
-    public boolean updateExamAndSchedule(String examID, String examName, String grade,String hallName, String examTime, String examDate, String examShedulID) throws SQLException {
+    public boolean updateExamAndSchedule(
+            String examID, String examName, String grade,
+            String hallName, String examTime, String examDate,
+            String examShedulID, String subjectID
+    ) throws SQLException {
         Connection connection = DBConnection.getInstance().getConnection();
         connection.setAutoCommit(false);
 
         try {
+
             boolean isExamUpdated = CrudUtil.execute(
                     "UPDATE exam SET e_name = ?, grade = ? WHERE ex_id = ?",
-                    examName,
-                    grade,
-                    examID
+                    examName, grade, examID
             );
 
-            if(isExamUpdated){
-                boolean isScheduleUpdated = examShedulModel.updateExamSchedule(examID,hallName, examTime, examDate, examShedulID
-                );
-
-                if(isScheduleUpdated){
-                    boolean isExamSubjectIdUpdate = examSubjectModel.updateExamSubjectId( examID, grade);
-
-                    if(isExamSubjectIdUpdate){
-                        connection.commit(); //
-                        return true;
-                    }
-                    else{
-                        connection.rollback();
-                        return false;
-                    }
-                }
+            if (!isExamUpdated) {
+                connection.rollback();
+                return false;
             }
+
+
+            boolean isScheduleUpdated = examShedulModel.updateExamSchedule(
+                    examID, hallName, examTime, examDate, examShedulID
+            );
+
+            if (!isScheduleUpdated) {
+                connection.rollback();
+                return false;
+            }
+
+            boolean isExamSubjectIdUpdate = examSubjectModel.updateExamSubjectId(subjectID, examID);
+
+            if (!isExamSubjectIdUpdate) {
+                connection.rollback();
+                return false;
+            }
+
+            connection.commit();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            connection.rollback();
+            return false;
+        } finally {
+            connection.setAutoCommit(true);
+        }
+    }
+
+    public boolean deleteExam(String examID, String examShedulID)  throws SQLException {
+        Connection connection = DBConnection.getInstance().getConnection();
+        connection.setAutoCommit(false);
+
+        try {
+            boolean isSubjectDeleted = examSubjectModel.deleteSubject(examID);
+            if (!isSubjectDeleted) {
+                connection.rollback();
+                return false;
+            }
+
+            boolean isScheduleDeleted = examShedulModel.deleteExamSchedule(examShedulID);
+            if (!isScheduleDeleted) {
+                connection.rollback();
+                return false;
+            }
+
+            boolean isExamDeleted = CrudUtil.execute("DELETE FROM exam WHERE ex_id = ?", examID);
+            if (!isExamDeleted) {
+                connection.rollback();
+                return false;
+            }
+
+            connection.commit();
+            return true;
 
         } catch (SQLException e) {
             e.printStackTrace();
             connection.rollback();
             return false;
-        }
-        return false;
-    }
-
-    public boolean deleteExam(String examID) throws SQLException {
-
-        Connection connection = DBConnection.getInstance().getConnection();
-        connection.setAutoCommit(false);
-
-        try {
-            boolean isDeleted = CrudUtil.execute("DELETE FROM sub_exam_detail WHERE exa_id = ?", examID);
-            if (isDeleted) {
-                boolean isScheduleDeleted = examShedulModel.deleteExamSchedule(examID);
-                if (isScheduleDeleted) {
-                    boolean isDeletedSubject = examSubjectModel.deleteSubject(examID);
-                    if (isDeletedSubject) {
-                        connection.commit();
-                        return true;
-                    } else {
-                        connection.rollback();
-                        return false;
-                    }
-                } else {
-                    connection.rollback();
-                    return false;
-                }
-            } else {
-                connection.rollback();
-                return false;
-            }
-        }catch (SQLException e) {
-            e.printStackTrace();
-            connection.rollback();
-            return false;
+        } finally {
+            connection.setAutoCommit(true);
         }
     }
 }

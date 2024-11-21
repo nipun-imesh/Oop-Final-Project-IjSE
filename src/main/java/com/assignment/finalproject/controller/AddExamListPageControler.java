@@ -158,19 +158,47 @@ public class AddExamListPageControler implements Initializable {
 
     @FXML
     void AddOnAction(ActionEvent event) {
+
         String examshedulID = LBExamShedulID.getText();
         String examID = LBExamID.getText();
         String examName = TXTExamName.getText();
-        String grade = String.valueOf(COBGrade.getValue());
-        String date = DTPDate.getValue().toString();
+        String grade = COBGrade.getValue() != null ? String.valueOf(COBGrade.getValue()) : "";
+        String date = DTPDate.getValue() != null ? DTPDate.getValue().toString() : "";
         String time = TXTTime.getText();
-        String hallName = String.valueOf(COBSelectHall.getValue());
-        String subjectID = String.valueOf(COMSubjectID.getValue());
+        String hallName = COBSelectHall.getValue() != null ? String.valueOf(COBSelectHall.getValue()) : "";
+        String subjectID = COMSubjectID.getValue() != null ? String.valueOf(COMSubjectID.getValue()) : "";
         String SubjectName = LBSbjectName.getText();
 
+        // Input validation
+        if (examName.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please Enter Exam Name").show();
+            return;
+        }
+        if (grade.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please Select Grade").show();
+            return;
+        }
+        if (date.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please Select Date").show();
+            return;
+        }
+        if (time.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please Enter Time").show();
+            return;
+        }
+        if (hallName.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please Select Hall Name").show();
+            return;
+        }
+        if (subjectID.isEmpty()) {
+            new Alert(Alert.AlertType.ERROR, "Please Select Subject ID").show();
+            return;
+        }
+
+        // Create a "Remove" button for the table
         Button btn = new Button("Remove");
 
-       ExamCartTM examCartTM = new ExamCartTM(
+        ExamCartTM examCartTM = new ExamCartTM(
                 examshedulID,
                 examID,
                 examName,
@@ -183,12 +211,16 @@ public class AddExamListPageControler implements Initializable {
                 btn
         );
 
+        // Set action for the "Remove" button
         btn.setOnAction(actionEvent -> {
-
             examCartTMS.remove(examCartTM);
             TBLplasMark.refresh();
         });
-       resetAddset();
+
+        // Reset fields after adding the exam
+        resetAddset();
+
+        // Add the exam to the list and update IDs
         examCartTMS.add(examCartTM);
         getExamShedulID();
         getExamID();
