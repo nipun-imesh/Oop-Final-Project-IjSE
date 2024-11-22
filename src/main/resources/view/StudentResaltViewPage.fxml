@@ -90,6 +90,7 @@
             </LinearGradient>
          </stroke>
       </Line>
+      <Button fx:id="BUTReport" layoutX="381.0" layoutY="460.0" mnemonicParsing="false" onAction="#generateReportOnAction" prefHeight="26.0" prefWidth="202.0" styleClass="button1" text="Generate Report" />
    </children>
    <stylesheets>
       <URL value="@../css/Styile.css" />

@@ -10,34 +10,68 @@ import java.sql.SQLException;
 
 public class SendMailModel {
 
-    public ObservableList<GetParentIdDTO> getAllParentID() throws SQLException {
+    public ObservableList<GetParentIdDTO> getAllParentID()  {
 
-        ResultSet rst = CrudUtil.execute("select parent_id from parent where status = 'Active'");
+        ResultSet rst = null;
+        try {
+            rst = CrudUtil.execute("select parent_id from parent where status = 'Active'");
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         ObservableList<GetParentIdDTO> getParentIdDTOS = FXCollections.observableArrayList();
-        while (rst.next()){
-            GetParentIdDTO getParentIdDTO = new GetParentIdDTO(
-                    rst.getString(1)
-            );
+        while (true){
+            try {
+                if (!rst.next()) break;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+
+            GetParentIdDTO getParentIdDTO = null;
+            try {
+                getParentIdDTO = new GetParentIdDTO(
+                        rst.getString(1)
+                );
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             getParentIdDTOS.add(getParentIdDTO);
         }
         return getParentIdDTOS;
     }
 
-    public String getParentName(String parentId) throws SQLException {
-        ResultSet resultSet = CrudUtil.execute("SELECT parent_name FROM parent WHERE parent_id = ?", parentId);
+    public String getParentName(String parentId)  {
+        ResultSet resultSet = null;
+        try {
+            resultSet = CrudUtil.execute("SELECT parent_name FROM parent WHERE parent_id = ?", parentId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
-        if (resultSet.next()) {
-            return resultSet.getString("parent_name");
+        try {
+            if (resultSet.next()) {
+                return resultSet.getString("parent_name");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         return null;
     }
 
-    public String getParentEmail(String parentId) throws SQLException {
-        ResultSet resultSet = CrudUtil.execute("SELECT e_mail FROM parent WHERE parent_id = ?", parentId);
+    public String getParentEmail(String parentId) {
+        ResultSet resultSet = null;
+        try {
+            resultSet = CrudUtil.execute("SELECT e_mail FROM parent WHERE parent_id = ?", parentId);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
-        if(resultSet.next()){
-            return resultSet.getString("parent_email");
+        try {
+            if(resultSet.next()){
+                return resultSet.getString("e_mail");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         return null;
     }

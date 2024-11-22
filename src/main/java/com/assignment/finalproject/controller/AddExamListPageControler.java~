@@ -285,6 +285,8 @@ public class AddExamListPageControler implements Initializable {
         } else {
             new Alert(Alert.AlertType.ERROR, "Fail to save...!").show();
         }
+
+        TBLplasMark.getItems().clear();
     }
 
     @FXML

@@ -49,7 +49,7 @@
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="TXTName" promptText="customer" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="TXTName" promptText="Student Full Name" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
@@ -63,7 +63,7 @@
                               <Font name="Calibri Bold" size="14.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="TXTAge" promptText="000000000000" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="TXTAge" promptText="11 - 17" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-width: 0 0 1px 0;" HBox.hgrow="ALWAYS">
                            <font>
                               <Font name="Calibri" size="14.0" />
                            </font>
@@ -76,7 +76,7 @@
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font></Label>
-                        <TextField fx:id="TXTGrade" prefHeight="26.0" prefWidth="262.0" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-width: 0 0 1px 0;" />
+                        <TextField fx:id="TXTGrade" prefHeight="26.0" prefWidth="262.0" promptText="6 - 11" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-width: 0 0 1px 0;" />
                         <Label alignment="CENTER" prefHeight="18.0" prefWidth="314.0" text="Class">
                            <opaqueInsets>
                               <Insets left="50.0" />

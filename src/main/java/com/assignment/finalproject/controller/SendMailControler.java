@@ -53,16 +53,12 @@ public class SendMailControler implements Initializable {
     }
 
     @FXML
-    void selectParanrOnAction(ActionEvent event) {
+    void selectParanrOnAction(ActionEvent event) throws SQLException {
         String parentId = COMSelectParentID.getValue();
-        try {
-            String parentName = sendMailModel.getParentName(parentId);
-            String parentEmail = sendMailModel.getParentEmail(parentId);
-            LBPArentName.setText(parentName);
-            LBMailset.setText( parentEmail);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        String parentName = sendMailModel.getParentName(parentId);
+        String parentEmail = sendMailModel.getParentEmail(parentId);
+        LBPArentName.setText(parentName);
+        LBMailset.setText( parentEmail);
     }
 
     @FXML
@@ -152,5 +148,10 @@ public class SendMailControler implements Initializable {
             Logger.getLogger(SendMailControler.class.getName()).log(Level.SEVERE, null, e);
         }
         return null;
+    }
+
+    @FXML
+    void reportONAction(ActionEvent event) {
+
     }
 }

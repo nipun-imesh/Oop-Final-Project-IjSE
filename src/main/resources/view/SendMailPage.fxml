@@ -84,6 +84,7 @@
       <Line endX="-97.99998474121094" endY="-383.0" layoutX="98.0" layoutY="383.0" startX="-98.12133026123047" startY="39.67864990234375" strokeWidth="3.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Line endX="498.878662109375" endY="2.47869873046875" layoutX="109.0" layoutY="423.0" startX="-109.00000762939453" startY="2.47869873046875" strokeWidth="3.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Line endX="-97.99998474121094" endY="-383.0" layoutX="707.0" layoutY="385.0" startX="-98.12133026123047" startY="39.67864990234375" strokeWidth="3.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button fx:id="BUTReportJenarate" layoutX="33.0" layoutY="375.0" mnemonicParsing="false" onAction="#reportONAction" prefHeight="26.0" prefWidth="94.0" styleClass="button1" text="Report" />
    </children>
    <stylesheets>
       <URL value="@../css/Styile.css" />

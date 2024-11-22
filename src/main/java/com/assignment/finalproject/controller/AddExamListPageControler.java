@@ -131,6 +131,9 @@ public class AddExamListPageControler implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        COMSubjectID.setValue("");
+        COBSelectHall.setValue("");
+        COBGrade.setValue("");
     }
 
     private void setCellValues() {

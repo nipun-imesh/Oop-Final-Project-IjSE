@@ -192,5 +192,6 @@ public class AddParentToStudentPageControler implements Initializable {
     public void reset(){
         TXTParentName.setText("");
         TXTParentMail.setText("");
+        BUTSave.setDisable(false);
     }
 }

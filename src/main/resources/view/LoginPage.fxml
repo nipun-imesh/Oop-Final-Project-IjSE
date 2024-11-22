@@ -41,7 +41,7 @@
       <Button fx:id="BUTLogin" layoutX="501.0" layoutY="294.0" mnemonicParsing="false" onAction="#logInAction" prefHeight="26.0" prefWidth="78.0" styleClass="button1" stylesheets="@../css/Styile.css" text="Login" />
       <Line endX="-59.79998779296875" layoutX="581.0" layoutY="376.0" startX="-186.20001220703125" startY="3.0517578125E-5" />
       <Button fx:id="BUTWotchResalt" layoutX="371.0" layoutY="422.0" mnemonicParsing="false" onAction="#wotchResaltAction" prefHeight="26.0" prefWidth="343.0" styleClass="button1" stylesheets="@../css/Styile.css" text="Your resalt" />
-      <Label alignment="CENTER" layoutX="375.0" layoutY="337.0" prefHeight="26.0" prefWidth="198.0" text="Aleady have an account?">
+      <Label alignment="CENTER" layoutX="375.0" layoutY="337.0" prefHeight="26.0" prefWidth="198.0" text="Aleady Don't have an account?">
          <font>
             <Font size="13.0" />
          </font>

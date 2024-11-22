@@ -18,6 +18,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -85,6 +86,9 @@ public class ManageMarkControler implements Initializable {
 
     @FXML
     private TextField TXTNewMark;
+
+    @FXML
+    private Label LBcoretDate;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

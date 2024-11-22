@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,12 +11,6 @@
 
 <AnchorPane fx:id="AnkMainPage" prefHeight="720.0" prefWidth="1250.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.assignment.finalproject.controller.login.MainPageControler">
    <children>
-      <AnchorPane fx:id="ANKMainload" layoutX="271.0" layoutY="-4.0" prefHeight="725.0" prefWidth="982.0" styleClass="Ancorpain" stylesheets="@../css/Ancherpain.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="-4.0" />
-      <ImageView fitHeight="724.0" fitWidth="975.0" layoutX="275.0" layoutY="2.0">
-         <image>
-            <Image url="@../imege/background.png" />
-         </image>
-      </ImageView>
       <Pane layoutY="-1.0" prefHeight="720.0" prefWidth="275.0" styleClass="Backgrount1" stylesheets="@../css/Styile.css" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox layoutX="7.0" layoutY="111.0" prefHeight="523.0" prefWidth="258.0" spacing="5.0">
@@ -33,17 +26,17 @@
                            </image>
                         </ImageView>
                      </graphic></Button>
-                  <Button fx:id="BUTAddExam" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="40.0" layoutX="10.0" layoutY="80.0" mnemonicParsing="false" onAction="#AddExamAction" prefHeight="69.0" prefWidth="238.0" styleClass="menu-item" text="Add Exam" VBox.vgrow="ALWAYS">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <graphic>
-                        <ImageView fitHeight="27.0" fitWidth="31.0">
-                           <image>
-                              <Image url="@../imege/file.png" />
-                           </image>
-                        </ImageView>
-                     </graphic></Button>
+<!--                  <Button fx:id="BUTExamManage" alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="40.0" layoutX="10.0" layoutY="80.0" mnemonicParsing="false" onAction="#AddExamAction" prefHeight="69.0" prefWidth="238.0" styleClass="menu-item" text="Add Exam" VBox.vgrow="ALWAYS">-->
+<!--                     <VBox.margin>-->
+<!--                        <Insets />-->
+<!--                     </VBox.margin>-->
+<!--                     <graphic>-->
+<!--                        <ImageView fitHeight="27.0" fitWidth="31.0">-->
+<!--                           <image>-->
+<!--                              <Image url="@../imege/file.png" />-->
+<!--                           </image>-->
+<!--                        </ImageView>-->
+<!--                     </graphic></Button>-->
                   <Button fx:id="BUTAddMark" contentDisplay="RIGHT" graphicTextGap="40.0" layoutX="10.0" layoutY="328.0" mnemonicParsing="false" onAction="#addMarkOnAction" prefHeight="70.0" prefWidth="238.0" styleClass="menu-item" text="Add Maks" wrapText="true">
                      <VBox.margin>
                         <Insets />
@@ -98,15 +91,11 @@
                   <Font size="13.0" />
                </font>
             </Button>
-            <Label fx:id="LBDate" alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="34.0" prefHeight="56.0" prefWidth="229.0" text="Label" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="27.0" />
-               </font>
-            </Label>
          </children>
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </Pane>
+      <AnchorPane fx:id="ANKMainload" layoutX="271.0" layoutY="-4.0" prefHeight="725.0" prefWidth="982.0" styleClass="Ancorpain" stylesheets="@../css/Ancherpain.css" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="271.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="-4.0" />
    </children>
 </AnchorPane>
